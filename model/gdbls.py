@@ -55,8 +55,12 @@ class FeatureBlock(nn.Module):
 
         self.relu = nn.ReLU(inplace=True)
 
+        self.avgpool = nn.AdaptiveAvgPool2d(1)
         self.fc1 = nn.Linear(planes, planes // divn)
         self.fc2 = nn.Linear(planes // divn, planes)
+
+        self.reshape = torch.reshape
+        self.multiply = torch.multiply
 
         self.dropout = nn.Dropout(dropout_rate)
         self.downsample = downsample
@@ -80,21 +84,22 @@ class FeatureBlock(nn.Module):
         # se block
         identity = out
         # only for [N,W,H,C], this is globalaveragepooling2d
-        squeeze = nn.AvgPool2d(out.size()[1])(out)
+        squeeze = self.avgpool(out)
         se_res = self.fc1(squeeze)
         se_res = self.fc2(se_res)
 
         if self.downsample is not None:
             identity = self.downsample(x)
 
-        out = torch.multiply(torch.reshape(se_res, (1, 1, self.planes)), identity)
+        out = self.multiply(self.reshape(se_res, (1, 1, self.planes)), identity)
         out = self.relu(out)
         out = self.dropout(out)
         return out
 
 
 # gdbls base
-class GrandDescentBoardLearningSystem(nn.Module):
+# GrandDescentBoardLearningSystem
+class GDBLS(nn.Module):
     def __init__(
             self,
             num_classes: int = 10,
@@ -106,7 +111,7 @@ class GrandDescentBoardLearningSystem(nn.Module):
             dropout_rate: List[float] = None,
             norm_layer: Optional[Callable[..., nn.Module]] = None,
     ) -> None:
-        super(GrandDescentBoardLearningSystem, self).__init__()
+        super(GDBLS, self).__init__()
         _log_api_usage_once(self)
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -115,7 +120,8 @@ class GrandDescentBoardLearningSystem(nn.Module):
 
         self._norm_layer = norm_layer
 
-        self.inplanes = 1
+        self.inplanes = 3
+        self.num_classes = num_classes
 
         self.fb1 = FeatureBlock(
             inplanes=self.inplanes,
@@ -136,8 +142,11 @@ class GrandDescentBoardLearningSystem(nn.Module):
             dropout_rate=dropout_rate[0],
         )
 
+        self.flatten = torch.flatten
+        self.fc = nn.Linear
+        self.concat = torch.concat
+
         self.dropout = nn.Dropout(overall_dropout)
-        self.fc = nn.Linear(Any, num_classes)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -159,15 +168,15 @@ class GrandDescentBoardLearningSystem(nn.Module):
         p2 = self.fb2(p1)
         p3 = self.fb3(p2)
 
-        t1 = torch.flatten(p1)
-        t2 = torch.flatten(p2)
-        t3 = torch.flatten(p3)
+        t1 = self.flatten(p1)
+        t2 = self.flatten(p2)
+        t3 = self.flatten(p3)
 
-        merged = torch.concat([t1, t2, t3])
+        merged = self.concat([t1, t2, t3])
+        merged = self.dropout(merged)
 
-        out = nn.Linear(merged.shape[-1],self.num)
-
-        return x
+        out = self.fc(merged.shape[-1], self.num_classes)(merged)
+        return out
 
     def forward(self, x: Tensor) -> Tensor:
         return self._forward_impl(x)
