@@ -1,31 +1,10 @@
 import torch
 from torch import nn
 from torch import Tensor
-from typing import Type, Any, Callable, Union, List, Optional
-
-from torch._jit_internal import ignore
+from typing import List
 from torchvision.utils import _log_api_usage_once
-
-
-def conv3x3(
-        in_planes: int, out_planes: int, stride: int = 1, groups: int = 1, dilation: int = 1
-) -> nn.Conv2d:
-    """3x3 convolution with padding"""
-    return nn.Conv2d(
-        in_planes,
-        out_planes,
-        kernel_size=3,
-        stride=stride,
-        padding=dilation,
-        groups=groups,
-        bias=False,
-        dilation=dilation,
-    )
-
-
-def conv1x1(in_planes: int, out_planes: int, stride: int = 1) -> nn.Conv2d:
-    """1x1 convolution"""
-    return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
+from model.PPVPooling import PPVPooling
+from model.customConvs import conv1x1, conv3x3, conv5x5
 
 
 class FeatureBlock(nn.Module):
@@ -33,67 +12,71 @@ class FeatureBlock(nn.Module):
             self,
             inplanes: int,
             planes: int,
-            stride: int = 1,
             divn: int = 4,
             dropout_rate: float = 0.1,
-            downsample: Optional[nn.Module] = None,
-            norm_layer: Optional[Callable[..., nn.Module]] = None,
+            islast: bool = False,
+            batchs: int = 128
     ) -> None:
         super().__init__()
-        if norm_layer is None:
-            norm_layer = nn.BatchNorm2d
-        if downsample is None:
-            downsample = nn.MaxPool2d(kernel_size=2)
+        self.planes = planes
+        self.batchs = batchs
 
-        # Both self.conv1 and self.downsample layers downsample the input when stride != 1
-        self.conv1 = conv3x3(inplanes, planes // 2, stride)
-        self.bn1 = norm_layer(planes // 2)
+        self.conv1 = conv3x3(inplanes, planes // 2)
+        self.bn1 = nn.BatchNorm2d(planes // 2)
+        self.relu1 = nn.ReLU(inplace=True)
+        self.dropout1 = nn.Dropout(dropout_rate)
+
         self.conv2 = conv3x3(planes // 2, planes // 2)
-        self.bn2 = norm_layer(planes // 2)
-        self.conv3 = conv3x3(planes // 2, planes)
-        self.bn3 = norm_layer(planes)
+        self.bn2 = nn.BatchNorm2d(planes // 2)
+        self.relu2 = nn.ReLU(inplace=True)
+        self.dropout2 = nn.Dropout(dropout_rate)
 
-        self.relu = nn.ReLU(inplace=True)
+        if islast:
+            self.conv3 = conv5x5(planes // 2, planes)
+        else:
+            self.conv3 = conv3x3(planes // 2, planes)
+        self.bn3 = nn.BatchNorm2d(planes)
+        self.relu3 = nn.ReLU(inplace=True)
 
-        self.avgpool = nn.AdaptiveAvgPool2d(1)
+        self.pool = PPVPooling(bias=2e-1)
+        # self.avgpool = nn.AdaptiveAvgPool2d(1)
+        self.reshape1 = torch.reshape
         self.fc1 = nn.Linear(planes, planes // divn)
         self.fc2 = nn.Linear(planes // divn, planes)
 
-        self.reshape = torch.reshape
+        self.reshape2 = torch.reshape
         self.multiply = torch.multiply
 
-        self.dropout = nn.Dropout(dropout_rate)
-        self.downsample = downsample
-        self.planes = planes
+        self.downsample = nn.AvgPool2d(kernel_size=2)
+        self.dropout3 = nn.Dropout(dropout_rate)
 
     def forward(self, x: Tensor) -> Tensor:
+        # todo test the priority sequence of relu and bn layers.
         out = self.conv1(x)
+        out = self.relu1(out)
         out = self.bn1(out)
-        out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout1(out)  # batchsize,planes // 2,32,32
 
         out = self.conv2(out)
+        out = self.relu2(out)
         out = self.bn2(out)
-        out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout2(out)  # batchsize,planes // 2,32,32
 
         out = self.conv3(out)
+        out = self.relu3(out)  # batchsize,planes,32,32
         out = self.bn3(out)
-        out = self.relu(out)
 
         # se block
         identity = out
-        # only for [N,W,H,C], this is globalaveragepooling2d
-        squeeze = self.avgpool(out)
-        se_res = self.fc1(squeeze)
-        se_res = self.fc2(se_res)
+        seout = self.pool(out)
+        seout = self.reshape1(seout, (self.batchs, self.planes))  # batchsize,planes,1,1 -> batchsize,planes
+        seout = self.fc1(seout)
+        seout = self.fc2(seout)
+        out = self.multiply(self.reshape2(seout, (self.batchs, self.planes, 1, 1,)), identity)
 
         if self.downsample is not None:
-            identity = self.downsample(x)
-
-        out = self.multiply(self.reshape(se_res, (1, 1, self.planes)), identity)
-        out = self.relu(out)
-        out = self.dropout(out)
+            out = self.downsample(out)
+        out = self.dropout3(out)
         return out
 
 
@@ -103,24 +86,18 @@ class GDBLS(nn.Module):
     def __init__(
             self,
             num_classes: int = 10,
+            batchsize: int = 128,
             input_shape: List[int] = None,
             overall_dropout=0.5,
-            zero_init_residual: bool = True,
             filters: List[int] = None,
             divns: List[int] = None,
             dropout_rate: List[float] = None,
-            norm_layer: Optional[Callable[..., nn.Module]] = None,
     ) -> None:
         super(GDBLS, self).__init__()
         _log_api_usage_once(self)
-        if norm_layer is None:
-            norm_layer = nn.BatchNorm2d
-        if input_shape is None:
-            input_shape = [32, 32, 3]
 
-        self._norm_layer = norm_layer
-
-        self.inplanes = 3
+        assert input_shape is not None
+        self.inplanes = input_shape[0]  # in default channels first
         self.num_classes = num_classes
 
         self.fb1 = FeatureBlock(
@@ -128,26 +105,38 @@ class GDBLS(nn.Module):
             planes=filters[0],
             divn=divns[0],
             dropout_rate=dropout_rate[0],
+            batchs=batchsize
         )
         self.fb2 = FeatureBlock(
             inplanes=filters[0],
             planes=filters[1],
             divn=divns[1],
             dropout_rate=dropout_rate[0],
+            batchs=batchsize
         )
         self.fb3 = FeatureBlock(
             inplanes=filters[1],
             planes=filters[2],
             divn=divns[2],
             dropout_rate=dropout_rate[0],
+            batchs=batchsize,
+            islast=True
         )
 
-        self.flatten = torch.flatten
-        self.fc = nn.Linear
-        self.concat = torch.concat
+        self.flatten1 = torch.flatten
+
+        self.upsample2 = nn.UpsamplingBilinear2d(scale_factor=2)
+        self.conv2d2 = conv1x1(in_planes=filters[1], out_planes=filters[0])
+        self.flatten2 = torch.flatten
+
+        self.upsample3 = nn.UpsamplingBilinear2d(scale_factor=4)
+        self.conv2d3 = conv1x1(in_planes=filters[2], out_planes=filters[0])
+        self.flatten3 = torch.flatten
 
         self.dropout = nn.Dropout(overall_dropout)
+        self.fc = nn.Linear((filters[0] * 16 * 16), self.num_classes)
 
+        # todo improve the init functions to meet the original tensorflow project
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
                 nn.init.kaiming_normal_(m.weight, mode="fan_out", nonlinearity="relu")
@@ -155,27 +144,25 @@ class GDBLS(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-        # Zero-initialize the last BN in each residual branch,
-        # so that the residual branch starts with zeros, and each residual block behaves like an identity.
-        # This improves the model by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
-        if zero_init_residual:
-            for m in self.modules():
-                if isinstance(m, FeatureBlock):
-                    nn.init.constant_(m.bn2.weight, 0)  # type: ignore[arg-type]
-
     def _forward_impl(self, x: Tensor) -> Tensor:
-        p1 = self.fb1(x)
-        p2 = self.fb2(p1)
-        p3 = self.fb3(p2)
+        p1 = self.fb1(x)  # batchsize,128,16,16
+        p2 = self.fb2(p1)  # batchsize,192,8,8
+        p3 = self.fb3(p2)  # batchsize,256,4,4
 
-        t1 = self.flatten(p1)
-        t2 = self.flatten(p2)
-        t3 = self.flatten(p3)
+        p1 = self.flatten1(p1, start_dim=1)  # [batchsize,32768]=batchsize*(128*16*16)
 
-        merged = self.concat([t1, t2, t3])
-        merged = self.dropout(merged)
+        p2 = self.upsample2(p2)  # 8,8 -> 16,16, upsample factor = 2
+        p2 = self.conv2d2(p2)  # 1x1 conv
+        p2 = self.flatten2(p2, start_dim=1)  # [batchsize,32768]=batchsize*(128*16*16)
 
-        out = self.fc(merged.shape[-1], self.num_classes)(merged)
+        p3 = self.upsample3(p3)  # 4,4 -> 16,16, upsample factor = 4
+        p3 = self.conv2d3(p3)  # 1x1 conv
+        p3 = self.flatten3(p3, start_dim=1)  # [batchsize,32768]=batchsize*(128*16*16)
+
+        out = p1 + p2 + p3
+        out = self.dropout(out)
+
+        out = self.fc(out)
         return out
 
     def forward(self, x: Tensor) -> Tensor:

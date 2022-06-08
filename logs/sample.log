@@ -1,0 +1,1028 @@
+/media/zrway/3a0953e8-35d8-42cf-ab69-af4047dba592/gdbls-pytorch/env/bin/python /media/zrway/3a0953e8-35d8-42cf-ab69-af4047dba592/gdbls-pytorch/ignite_enterance.py
+Using cuda device
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+load data complete
+Shape of X [N, C, H, W]: torch.Size([128, 3, 32, 32])
+Shape of y: torch.Size([128]) torch.int64
+2022-06-08 20:12:03,320 trainer INFO: Engine run starting with max_epochs=100.
+2022-06-08 20:12:03,321 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:12:31,393 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:12:44,564 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:12:44,564 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:12:44,591 evaluator INFO: Training Results - Epoch: 1 Avg accuracy: 0.5107 Avg loss: 1.5695
+2022-06-08 20:12:44,591 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:12:45,360 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:12:45,360 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:12:45,395 evaluator INFO: Validation Results - Epoch: 1 Avg accuracy: 0.5822 Avg loss: 1.4413
+2022-06-08 20:12:45,395 evaluator INFO: EPOCH_COMPLETED took 28.007425546646118 seconds
+2022-06-08 20:12:45,395 trainer INFO: Epoch[1] Complete. Time taken: 00:00:42
+2022-06-08 20:12:45,395 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:13:13,508 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:13:26,733 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:13:26,734 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:13:26,767 evaluator INFO: Training Results - Epoch: 2 Avg accuracy: 0.5839 Avg loss: 1.4146
+2022-06-08 20:13:26,767 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:13:27,548 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:13:27,548 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:13:27,574 evaluator INFO: Validation Results - Epoch: 2 Avg accuracy: 0.6698 Avg loss: 1.2729
+2022-06-08 20:13:27,574 evaluator INFO: EPOCH_COMPLETED took 28.11283802986145 seconds
+2022-06-08 20:13:27,574 trainer INFO: Epoch[2] Complete. Time taken: 00:00:42
+2022-06-08 20:13:27,574 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:13:55,759 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:14:09,005 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:14:09,005 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:14:09,039 evaluator INFO: Training Results - Epoch: 3 Avg accuracy: 0.6144 Avg loss: 1.3660
+2022-06-08 20:14:09,039 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:14:09,807 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:14:09,807 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:14:09,843 evaluator INFO: Validation Results - Epoch: 3 Avg accuracy: 0.6826 Avg loss: 1.2358
+2022-06-08 20:14:09,843 evaluator INFO: EPOCH_COMPLETED took 28.184866428375244 seconds
+2022-06-08 20:14:09,843 trainer INFO: Epoch[3] Complete. Time taken: 00:00:42
+2022-06-08 20:14:09,843 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:14:38,077 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:14:51,364 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:14:51,364 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:14:51,397 evaluator INFO: Training Results - Epoch: 4 Avg accuracy: 0.6637 Avg loss: 1.2642
+2022-06-08 20:14:51,397 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:14:52,178 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:14:52,178 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:14:52,205 evaluator INFO: Validation Results - Epoch: 4 Avg accuracy: 0.7266 Avg loss: 1.1451
+2022-06-08 20:14:52,205 evaluator INFO: EPOCH_COMPLETED took 28.233991384506226 seconds
+2022-06-08 20:14:52,205 trainer INFO: Epoch[4] Complete. Time taken: 00:00:42
+2022-06-08 20:14:52,205 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:15:20,525 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:15:33,834 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:15:33,834 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:15:33,862 evaluator INFO: Training Results - Epoch: 5 Avg accuracy: 0.7059 Avg loss: 1.1746
+2022-06-08 20:15:33,862 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:15:34,637 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:15:34,638 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:15:34,671 evaluator INFO: Validation Results - Epoch: 5 Avg accuracy: 0.7586 Avg loss: 1.0787
+2022-06-08 20:15:34,671 evaluator INFO: EPOCH_COMPLETED took 28.3192241191864 seconds
+2022-06-08 20:15:34,671 trainer INFO: Epoch[5] Complete. Time taken: 00:00:42
+2022-06-08 20:15:34,671 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:16:03,056 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:16:16,367 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:16:16,367 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:16:16,396 evaluator INFO: Training Results - Epoch: 6 Avg accuracy: 0.7386 Avg loss: 1.1150
+2022-06-08 20:16:16,396 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:16:17,173 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:16:17,173 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:16:17,207 evaluator INFO: Validation Results - Epoch: 6 Avg accuracy: 0.7747 Avg loss: 1.0489
+2022-06-08 20:16:17,207 evaluator INFO: EPOCH_COMPLETED took 28.385082960128784 seconds
+2022-06-08 20:16:17,207 trainer INFO: Epoch[6] Complete. Time taken: 00:00:43
+2022-06-08 20:16:17,207 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:16:45,633 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:16:59,692 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:16:59,692 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:16:59,734 evaluator INFO: Training Results - Epoch: 7 Avg accuracy: 0.7366 Avg loss: 1.1064
+2022-06-08 20:16:59,734 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:17:00,522 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:17:00,522 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:17:00,559 evaluator INFO: Validation Results - Epoch: 7 Avg accuracy: 0.7755 Avg loss: 1.0335
+2022-06-08 20:17:00,559 evaluator INFO: EPOCH_COMPLETED took 28.426281690597534 seconds
+2022-06-08 20:17:00,559 trainer INFO: Epoch[7] Complete. Time taken: 00:00:43
+2022-06-08 20:17:00,559 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:17:28,869 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:17:42,125 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:17:42,125 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:17:42,164 evaluator INFO: Training Results - Epoch: 8 Avg accuracy: 0.7628 Avg loss: 1.0517
+2022-06-08 20:17:42,165 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:17:42,935 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:17:42,936 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:17:42,963 evaluator INFO: Validation Results - Epoch: 8 Avg accuracy: 0.8100 Avg loss: 0.9698
+2022-06-08 20:17:42,963 evaluator INFO: EPOCH_COMPLETED took 28.309568643569946 seconds
+2022-06-08 20:17:42,963 trainer INFO: Epoch[8] Complete. Time taken: 00:00:42
+2022-06-08 20:17:42,963 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:18:11,372 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:18:24,658 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:18:24,658 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:18:24,697 evaluator INFO: Training Results - Epoch: 9 Avg accuracy: 0.7975 Avg loss: 0.9753
+2022-06-08 20:18:24,697 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:18:25,477 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:18:25,477 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:18:25,512 evaluator INFO: Validation Results - Epoch: 9 Avg accuracy: 0.8281 Avg loss: 0.9171
+2022-06-08 20:18:25,512 evaluator INFO: EPOCH_COMPLETED took 28.408161163330078 seconds
+2022-06-08 20:18:25,512 trainer INFO: Epoch[9] Complete. Time taken: 00:00:43
+2022-06-08 20:18:25,512 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:18:53,843 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:19:07,110 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:19:07,110 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:19:07,140 evaluator INFO: Training Results - Epoch: 10 Avg accuracy: 0.8100 Avg loss: 0.9392
+2022-06-08 20:19:07,140 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:19:07,926 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:19:07,926 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:19:07,960 evaluator INFO: Validation Results - Epoch: 10 Avg accuracy: 0.8347 Avg loss: 0.8955
+2022-06-08 20:19:07,960 evaluator INFO: EPOCH_COMPLETED took 28.330750226974487 seconds
+2022-06-08 20:19:07,960 trainer INFO: Epoch[10] Complete. Time taken: 00:00:42
+2022-06-08 20:19:07,960 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:19:36,335 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:19:49,606 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:19:49,606 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:19:49,642 evaluator INFO: Training Results - Epoch: 11 Avg accuracy: 0.7942 Avg loss: 0.9748
+2022-06-08 20:19:49,642 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:19:50,415 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:19:50,415 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:19:50,450 evaluator INFO: Validation Results - Epoch: 11 Avg accuracy: 0.8195 Avg loss: 0.9387
+2022-06-08 20:19:50,450 evaluator INFO: EPOCH_COMPLETED took 28.375200033187866 seconds
+2022-06-08 20:19:50,451 trainer INFO: Epoch[11] Complete. Time taken: 00:00:42
+2022-06-08 20:19:50,451 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:20:18,937 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:20:32,233 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:20:32,233 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:20:32,268 evaluator INFO: Training Results - Epoch: 12 Avg accuracy: 0.8215 Avg loss: 0.9151
+2022-06-08 20:20:32,268 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:20:33,056 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:20:33,056 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:20:33,091 evaluator INFO: Validation Results - Epoch: 12 Avg accuracy: 0.8442 Avg loss: 0.8865
+2022-06-08 20:20:33,091 evaluator INFO: EPOCH_COMPLETED took 28.486730813980103 seconds
+2022-06-08 20:20:33,091 trainer INFO: Epoch[12] Complete. Time taken: 00:00:43
+2022-06-08 20:20:33,091 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:21:01,502 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:21:14,809 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:21:14,809 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:21:14,848 evaluator INFO: Training Results - Epoch: 13 Avg accuracy: 0.8396 Avg loss: 0.8773
+2022-06-08 20:21:14,848 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:21:15,623 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:21:15,623 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:21:15,658 evaluator INFO: Validation Results - Epoch: 13 Avg accuracy: 0.8614 Avg loss: 0.8501
+2022-06-08 20:21:15,658 evaluator INFO: EPOCH_COMPLETED took 28.411051034927368 seconds
+2022-06-08 20:21:15,658 trainer INFO: Epoch[13] Complete. Time taken: 00:00:43
+2022-06-08 20:21:15,658 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:21:44,066 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:21:57,388 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:21:57,388 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:21:57,419 evaluator INFO: Training Results - Epoch: 14 Avg accuracy: 0.8513 Avg loss: 0.8534
+2022-06-08 20:21:57,419 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:21:58,191 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:21:58,191 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:21:58,227 evaluator INFO: Validation Results - Epoch: 14 Avg accuracy: 0.8627 Avg loss: 0.8403
+2022-06-08 20:21:58,227 evaluator INFO: EPOCH_COMPLETED took 28.40755558013916 seconds
+2022-06-08 20:21:58,227 trainer INFO: Epoch[14] Complete. Time taken: 00:00:43
+2022-06-08 20:21:58,227 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:22:26,686 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:22:40,012 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:22:40,012 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:22:40,043 evaluator INFO: Training Results - Epoch: 15 Avg accuracy: 0.8564 Avg loss: 0.8362
+2022-06-08 20:22:40,043 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:22:40,831 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:22:40,831 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:22:40,867 evaluator INFO: Validation Results - Epoch: 15 Avg accuracy: 0.8701 Avg loss: 0.8237
+2022-06-08 20:22:40,867 evaluator INFO: EPOCH_COMPLETED took 28.459096431732178 seconds
+2022-06-08 20:22:40,867 trainer INFO: Epoch[15] Complete. Time taken: 00:00:43
+2022-06-08 20:22:40,867 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:23:09,327 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:23:22,658 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:23:22,658 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:23:22,690 evaluator INFO: Training Results - Epoch: 16 Avg accuracy: 0.8412 Avg loss: 0.8648
+2022-06-08 20:23:22,690 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:23:23,479 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:23:23,479 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:23:23,516 evaluator INFO: Validation Results - Epoch: 16 Avg accuracy: 0.8627 Avg loss: 0.8340
+2022-06-08 20:23:23,516 evaluator INFO: EPOCH_COMPLETED took 28.459813356399536 seconds
+2022-06-08 20:23:23,516 trainer INFO: Epoch[16] Complete. Time taken: 00:00:43
+2022-06-08 20:23:23,516 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:23:51,929 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:24:05,343 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:24:05,343 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:24:05,381 evaluator INFO: Training Results - Epoch: 17 Avg accuracy: 0.8298 Avg loss: 0.9820
+2022-06-08 20:24:05,381 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:24:06,172 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:24:06,172 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:24:06,208 evaluator INFO: Validation Results - Epoch: 17 Avg accuracy: 0.8298 Avg loss: 1.0155
+2022-06-08 20:24:06,208 evaluator INFO: EPOCH_COMPLETED took 28.412515878677368 seconds
+2022-06-08 20:24:06,208 trainer INFO: Epoch[17] Complete. Time taken: 00:00:43
+2022-06-08 20:24:06,208 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:24:34,645 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:24:47,992 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:24:47,992 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:24:48,028 evaluator INFO: Training Results - Epoch: 18 Avg accuracy: 0.8603 Avg loss: 0.8324
+2022-06-08 20:24:48,029 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:24:48,818 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:24:48,818 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:24:48,858 evaluator INFO: Validation Results - Epoch: 18 Avg accuracy: 0.8614 Avg loss: 0.8378
+2022-06-08 20:24:48,858 evaluator INFO: EPOCH_COMPLETED took 28.43622374534607 seconds
+2022-06-08 20:24:48,858 trainer INFO: Epoch[18] Complete. Time taken: 00:00:43
+2022-06-08 20:24:48,858 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:25:17,329 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:25:30,735 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:25:30,735 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:25:30,780 evaluator INFO: Training Results - Epoch: 19 Avg accuracy: 0.8630 Avg loss: 0.8248
+2022-06-08 20:25:30,780 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:25:31,560 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:25:31,561 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:25:31,597 evaluator INFO: Validation Results - Epoch: 19 Avg accuracy: 0.8655 Avg loss: 0.8262
+2022-06-08 20:25:31,597 evaluator INFO: EPOCH_COMPLETED took 28.471165657043457 seconds
+2022-06-08 20:25:31,597 trainer INFO: Epoch[19] Complete. Time taken: 00:00:43
+2022-06-08 20:25:31,597 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:25:59,987 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:26:13,282 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:26:13,282 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:26:13,313 evaluator INFO: Training Results - Epoch: 20 Avg accuracy: 0.8714 Avg loss: 0.8034
+2022-06-08 20:26:13,314 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:26:14,103 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:26:14,103 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:26:14,132 evaluator INFO: Validation Results - Epoch: 20 Avg accuracy: 0.8725 Avg loss: 0.8167
+2022-06-08 20:26:14,133 evaluator INFO: EPOCH_COMPLETED took 28.389328718185425 seconds
+2022-06-08 20:26:14,133 trainer INFO: Epoch[20] Complete. Time taken: 00:00:43
+2022-06-08 20:26:14,133 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:26:42,513 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:26:55,814 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:26:55,814 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:26:55,855 evaluator INFO: Training Results - Epoch: 21 Avg accuracy: 0.8814 Avg loss: 0.7834
+2022-06-08 20:26:55,855 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:26:56,644 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:26:56,644 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:26:56,674 evaluator INFO: Validation Results - Epoch: 21 Avg accuracy: 0.8869 Avg loss: 0.7944
+2022-06-08 20:26:56,674 evaluator INFO: EPOCH_COMPLETED took 28.380088329315186 seconds
+2022-06-08 20:26:56,675 trainer INFO: Epoch[21] Complete. Time taken: 00:00:43
+2022-06-08 20:26:56,675 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:27:25,051 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:27:38,361 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:27:38,361 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:27:38,406 evaluator INFO: Training Results - Epoch: 22 Avg accuracy: 0.8810 Avg loss: 0.7847
+2022-06-08 20:27:38,406 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:27:39,197 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:27:39,197 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:27:39,229 evaluator INFO: Validation Results - Epoch: 22 Avg accuracy: 0.8664 Avg loss: 0.8085
+2022-06-08 20:27:39,230 evaluator INFO: EPOCH_COMPLETED took 28.376447677612305 seconds
+2022-06-08 20:27:39,230 trainer INFO: Epoch[22] Complete. Time taken: 00:00:43
+2022-06-08 20:27:39,230 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:28:07,615 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:28:20,894 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:28:20,894 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:28:20,938 evaluator INFO: Training Results - Epoch: 23 Avg accuracy: 0.8840 Avg loss: 0.7729
+2022-06-08 20:28:20,938 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:28:21,718 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:28:21,718 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:28:21,755 evaluator INFO: Validation Results - Epoch: 23 Avg accuracy: 0.8816 Avg loss: 0.7885
+2022-06-08 20:28:21,755 evaluator INFO: EPOCH_COMPLETED took 28.38523268699646 seconds
+2022-06-08 20:28:21,755 trainer INFO: Epoch[23] Complete. Time taken: 00:00:43
+2022-06-08 20:28:21,755 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:28:50,121 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:29:03,411 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:29:03,411 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:29:03,452 evaluator INFO: Training Results - Epoch: 24 Avg accuracy: 0.8948 Avg loss: 0.7488
+2022-06-08 20:29:03,452 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:29:04,234 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:29:04,234 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:29:04,270 evaluator INFO: Validation Results - Epoch: 24 Avg accuracy: 0.8923 Avg loss: 0.7647
+2022-06-08 20:29:04,270 evaluator INFO: EPOCH_COMPLETED took 28.365761041641235 seconds
+2022-06-08 20:29:04,270 trainer INFO: Epoch[24] Complete. Time taken: 00:00:43
+2022-06-08 20:29:04,270 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:29:32,673 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:29:45,989 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:29:45,989 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:29:46,026 evaluator INFO: Training Results - Epoch: 25 Avg accuracy: 0.8982 Avg loss: 0.7482
+2022-06-08 20:29:46,027 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:29:46,822 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:29:46,822 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:29:46,857 evaluator INFO: Validation Results - Epoch: 25 Avg accuracy: 0.8951 Avg loss: 0.7617
+2022-06-08 20:29:46,857 evaluator INFO: EPOCH_COMPLETED took 28.402880668640137 seconds
+2022-06-08 20:29:46,857 trainer INFO: Epoch[25] Complete. Time taken: 00:00:43
+2022-06-08 20:29:46,857 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:30:15,347 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:30:28,641 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:30:28,641 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:30:28,678 evaluator INFO: Training Results - Epoch: 26 Avg accuracy: 0.8993 Avg loss: 0.7390
+2022-06-08 20:30:28,678 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:30:29,456 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:30:29,456 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:30:29,493 evaluator INFO: Validation Results - Epoch: 26 Avg accuracy: 0.8886 Avg loss: 0.7776
+2022-06-08 20:30:29,493 evaluator INFO: EPOCH_COMPLETED took 28.490042209625244 seconds
+2022-06-08 20:30:29,493 trainer INFO: Epoch[26] Complete. Time taken: 00:00:43
+2022-06-08 20:30:29,493 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:30:57,888 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:31:11,206 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:31:11,206 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:31:11,251 evaluator INFO: Training Results - Epoch: 27 Avg accuracy: 0.9031 Avg loss: 0.7348
+2022-06-08 20:31:11,251 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:31:12,044 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:31:12,045 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:31:12,083 evaluator INFO: Validation Results - Epoch: 27 Avg accuracy: 0.8927 Avg loss: 0.7679
+2022-06-08 20:31:12,083 evaluator INFO: EPOCH_COMPLETED took 28.394340753555298 seconds
+2022-06-08 20:31:12,083 trainer INFO: Epoch[27] Complete. Time taken: 00:00:43
+2022-06-08 20:31:12,083 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:31:40,460 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:31:53,772 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:31:53,772 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:31:53,811 evaluator INFO: Training Results - Epoch: 28 Avg accuracy: 0.9012 Avg loss: 0.7403
+2022-06-08 20:31:53,812 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:31:54,602 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:31:54,602 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:31:54,640 evaluator INFO: Validation Results - Epoch: 28 Avg accuracy: 0.8960 Avg loss: 0.7751
+2022-06-08 20:31:54,640 evaluator INFO: EPOCH_COMPLETED took 28.376269102096558 seconds
+2022-06-08 20:31:54,640 trainer INFO: Epoch[28] Complete. Time taken: 00:00:43
+2022-06-08 20:31:54,640 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:32:23,017 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:32:36,312 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:32:36,312 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:32:36,346 evaluator INFO: Training Results - Epoch: 29 Avg accuracy: 0.8956 Avg loss: 0.7738
+2022-06-08 20:32:36,347 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:32:37,128 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:32:37,129 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:32:37,161 evaluator INFO: Validation Results - Epoch: 29 Avg accuracy: 0.8832 Avg loss: 0.8164
+2022-06-08 20:32:37,161 evaluator INFO: EPOCH_COMPLETED took 28.376896381378174 seconds
+2022-06-08 20:32:37,161 trainer INFO: Epoch[29] Complete. Time taken: 00:00:43
+2022-06-08 20:32:37,161 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:33:05,563 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:33:18,858 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:33:18,859 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:33:18,893 evaluator INFO: Training Results - Epoch: 30 Avg accuracy: 0.9103 Avg loss: 0.7163
+2022-06-08 20:33:18,893 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:33:19,688 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:33:19,689 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:33:19,728 evaluator INFO: Validation Results - Epoch: 30 Avg accuracy: 0.8935 Avg loss: 0.7591
+2022-06-08 20:33:19,728 evaluator INFO: EPOCH_COMPLETED took 28.40205478668213 seconds
+2022-06-08 20:33:19,728 trainer INFO: Epoch[30] Complete. Time taken: 00:00:43
+2022-06-08 20:33:19,728 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:33:48,128 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:34:01,431 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:34:01,431 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:34:01,465 evaluator INFO: Training Results - Epoch: 31 Avg accuracy: 0.9136 Avg loss: 0.7111
+2022-06-08 20:34:01,465 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:34:02,255 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:34:02,255 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:34:02,288 evaluator INFO: Validation Results - Epoch: 31 Avg accuracy: 0.8939 Avg loss: 0.7562
+2022-06-08 20:34:02,288 evaluator INFO: EPOCH_COMPLETED took 28.39969515800476 seconds
+2022-06-08 20:34:02,288 trainer INFO: Epoch[31] Complete. Time taken: 00:00:43
+2022-06-08 20:34:02,288 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:34:30,671 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:34:43,986 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:34:43,986 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:34:44,026 evaluator INFO: Training Results - Epoch: 32 Avg accuracy: 0.9186 Avg loss: 0.6975
+2022-06-08 20:34:44,026 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:34:44,812 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:34:44,812 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:34:44,851 evaluator INFO: Validation Results - Epoch: 32 Avg accuracy: 0.8980 Avg loss: 0.7510
+2022-06-08 20:34:44,852 evaluator INFO: EPOCH_COMPLETED took 28.382630825042725 seconds
+2022-06-08 20:34:44,852 trainer INFO: Epoch[32] Complete. Time taken: 00:00:43
+2022-06-08 20:34:44,852 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:35:13,265 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:35:26,557 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:35:26,557 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:35:26,596 evaluator INFO: Training Results - Epoch: 33 Avg accuracy: 0.8972 Avg loss: 0.7544
+2022-06-08 20:35:26,596 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:35:27,392 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:35:27,393 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:35:27,432 evaluator INFO: Validation Results - Epoch: 33 Avg accuracy: 0.8906 Avg loss: 0.7757
+2022-06-08 20:35:27,432 evaluator INFO: EPOCH_COMPLETED took 28.413607597351074 seconds
+2022-06-08 20:35:27,432 trainer INFO: Epoch[33] Complete. Time taken: 00:00:43
+2022-06-08 20:35:27,432 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:35:55,843 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:36:09,131 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:36:09,131 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:36:09,166 evaluator INFO: Training Results - Epoch: 34 Avg accuracy: 0.9190 Avg loss: 0.6999
+2022-06-08 20:36:09,166 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:36:09,952 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:36:09,952 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:36:09,985 evaluator INFO: Validation Results - Epoch: 34 Avg accuracy: 0.8943 Avg loss: 0.7495
+2022-06-08 20:36:09,986 evaluator INFO: EPOCH_COMPLETED took 28.410727500915527 seconds
+2022-06-08 20:36:09,986 trainer INFO: Epoch[34] Complete. Time taken: 00:00:43
+2022-06-08 20:36:09,986 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:36:38,377 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:36:51,679 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:36:51,679 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:36:51,718 evaluator INFO: Training Results - Epoch: 35 Avg accuracy: 0.9182 Avg loss: 0.6958
+2022-06-08 20:36:51,718 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:36:52,511 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:36:52,512 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:36:52,552 evaluator INFO: Validation Results - Epoch: 35 Avg accuracy: 0.8988 Avg loss: 0.7334
+2022-06-08 20:36:52,552 evaluator INFO: EPOCH_COMPLETED took 28.391716480255127 seconds
+2022-06-08 20:36:52,552 trainer INFO: Epoch[35] Complete. Time taken: 00:00:43
+2022-06-08 20:36:52,552 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:37:20,941 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:37:34,306 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:37:34,306 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:37:34,350 evaluator INFO: Training Results - Epoch: 36 Avg accuracy: 0.9190 Avg loss: 0.6951
+2022-06-08 20:37:34,350 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:37:35,132 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:37:35,133 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:37:35,172 evaluator INFO: Validation Results - Epoch: 36 Avg accuracy: 0.8956 Avg loss: 0.7564
+2022-06-08 20:37:35,172 evaluator INFO: EPOCH_COMPLETED took 28.388320684432983 seconds
+2022-06-08 20:37:35,172 trainer INFO: Epoch[36] Complete. Time taken: 00:00:43
+2022-06-08 20:37:35,172 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:38:03,686 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:38:16,976 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:38:16,977 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:38:17,012 evaluator INFO: Training Results - Epoch: 37 Avg accuracy: 0.9181 Avg loss: 0.6956
+2022-06-08 20:38:17,012 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:38:17,809 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:38:17,809 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:38:17,848 evaluator INFO: Validation Results - Epoch: 37 Avg accuracy: 0.8956 Avg loss: 0.7579
+2022-06-08 20:38:17,848 evaluator INFO: EPOCH_COMPLETED took 28.513863801956177 seconds
+2022-06-08 20:38:17,848 trainer INFO: Epoch[37] Complete. Time taken: 00:00:43
+2022-06-08 20:38:17,848 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:38:46,263 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:38:59,566 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:38:59,566 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:38:59,602 evaluator INFO: Training Results - Epoch: 38 Avg accuracy: 0.9160 Avg loss: 0.7048
+2022-06-08 20:38:59,602 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:39:00,392 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:39:00,392 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:39:00,432 evaluator INFO: Validation Results - Epoch: 38 Avg accuracy: 0.9030 Avg loss: 0.7460
+2022-06-08 20:39:00,432 evaluator INFO: EPOCH_COMPLETED took 28.415061950683594 seconds
+2022-06-08 20:39:00,432 trainer INFO: Epoch[38] Complete. Time taken: 00:00:43
+2022-06-08 20:39:00,432 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:39:28,814 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:39:42,121 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:39:42,121 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:39:42,163 evaluator INFO: Training Results - Epoch: 39 Avg accuracy: 0.9190 Avg loss: 0.6945
+2022-06-08 20:39:42,163 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:39:42,964 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:39:42,965 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:39:43,005 evaluator INFO: Validation Results - Epoch: 39 Avg accuracy: 0.8898 Avg loss: 0.7731
+2022-06-08 20:39:43,005 evaluator INFO: EPOCH_COMPLETED took 28.381887435913086 seconds
+2022-06-08 20:39:43,005 trainer INFO: Epoch[39] Complete. Time taken: 00:00:43
+2022-06-08 20:39:43,005 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:40:11,380 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:40:24,669 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:40:24,670 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:40:24,706 evaluator INFO: Training Results - Epoch: 40 Avg accuracy: 0.9245 Avg loss: 0.6834
+2022-06-08 20:40:24,706 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:40:25,491 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:40:25,491 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:40:25,538 evaluator INFO: Validation Results - Epoch: 40 Avg accuracy: 0.8972 Avg loss: 0.7347
+2022-06-08 20:40:25,538 evaluator INFO: EPOCH_COMPLETED took 28.375064611434937 seconds
+2022-06-08 20:40:25,538 trainer INFO: Epoch[40] Complete. Time taken: 00:00:43
+2022-06-08 20:40:25,539 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:40:53,946 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:41:07,241 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:41:07,241 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:41:07,282 evaluator INFO: Training Results - Epoch: 41 Avg accuracy: 0.9226 Avg loss: 0.6877
+2022-06-08 20:41:07,282 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:41:08,084 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:41:08,084 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:41:08,119 evaluator INFO: Validation Results - Epoch: 41 Avg accuracy: 0.9079 Avg loss: 0.7281
+2022-06-08 20:41:08,119 evaluator INFO: EPOCH_COMPLETED took 28.407721042633057 seconds
+2022-06-08 20:41:08,119 trainer INFO: Epoch[41] Complete. Time taken: 00:00:43
+2022-06-08 20:41:08,120 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:41:36,506 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:41:49,821 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:41:49,821 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:41:49,858 evaluator INFO: Training Results - Epoch: 42 Avg accuracy: 0.9320 Avg loss: 0.6666
+2022-06-08 20:41:49,858 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:41:50,657 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:41:50,657 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:41:50,697 evaluator INFO: Validation Results - Epoch: 42 Avg accuracy: 0.9062 Avg loss: 0.7277
+2022-06-08 20:41:50,697 evaluator INFO: EPOCH_COMPLETED took 28.386154890060425 seconds
+2022-06-08 20:41:50,697 trainer INFO: Epoch[42] Complete. Time taken: 00:00:43
+2022-06-08 20:41:50,697 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:42:19,105 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:42:32,419 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:42:32,419 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:42:32,463 evaluator INFO: Training Results - Epoch: 43 Avg accuracy: 0.9320 Avg loss: 0.6702
+2022-06-08 20:42:32,463 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:42:33,263 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:42:33,264 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:42:33,299 evaluator INFO: Validation Results - Epoch: 43 Avg accuracy: 0.9058 Avg loss: 0.7251
+2022-06-08 20:42:33,299 evaluator INFO: EPOCH_COMPLETED took 28.407817125320435 seconds
+2022-06-08 20:42:33,299 trainer INFO: Epoch[43] Complete. Time taken: 00:00:43
+2022-06-08 20:42:33,299 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:43:01,725 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:43:15,037 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:43:15,037 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:43:15,077 evaluator INFO: Training Results - Epoch: 44 Avg accuracy: 0.9324 Avg loss: 0.6653
+2022-06-08 20:43:15,077 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:43:15,878 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:43:15,878 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:43:15,920 evaluator INFO: Validation Results - Epoch: 44 Avg accuracy: 0.9046 Avg loss: 0.7320
+2022-06-08 20:43:15,920 evaluator INFO: EPOCH_COMPLETED took 28.42587113380432 seconds
+2022-06-08 20:43:15,920 trainer INFO: Epoch[44] Complete. Time taken: 00:00:43
+2022-06-08 20:43:15,921 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:43:44,342 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:43:57,664 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:43:57,664 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:43:57,707 evaluator INFO: Training Results - Epoch: 45 Avg accuracy: 0.9313 Avg loss: 0.6701
+2022-06-08 20:43:57,707 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:43:58,515 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:43:58,516 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:43:58,556 evaluator INFO: Validation Results - Epoch: 45 Avg accuracy: 0.8964 Avg loss: 0.7387
+2022-06-08 20:43:58,556 evaluator INFO: EPOCH_COMPLETED took 28.420899629592896 seconds
+2022-06-08 20:43:58,556 trainer INFO: Epoch[45] Complete. Time taken: 00:00:43
+2022-06-08 20:43:58,556 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:44:26,947 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:44:40,262 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:44:40,262 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:44:40,299 evaluator INFO: Training Results - Epoch: 46 Avg accuracy: 0.9293 Avg loss: 0.6744
+2022-06-08 20:44:40,300 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:44:41,101 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:44:41,101 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:44:41,143 evaluator INFO: Validation Results - Epoch: 46 Avg accuracy: 0.9021 Avg loss: 0.7281
+2022-06-08 20:44:41,143 evaluator INFO: EPOCH_COMPLETED took 28.390764236450195 seconds
+2022-06-08 20:44:41,143 trainer INFO: Epoch[46] Complete. Time taken: 00:00:43
+2022-06-08 20:44:41,143 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:45:09,527 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:45:22,822 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:45:22,822 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:45:22,866 evaluator INFO: Training Results - Epoch: 47 Avg accuracy: 0.9333 Avg loss: 0.6644
+2022-06-08 20:45:22,866 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:45:23,657 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:45:23,657 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:45:23,706 evaluator INFO: Validation Results - Epoch: 47 Avg accuracy: 0.9075 Avg loss: 0.7337
+2022-06-08 20:45:23,706 evaluator INFO: EPOCH_COMPLETED took 28.384079933166504 seconds
+2022-06-08 20:45:23,706 trainer INFO: Epoch[47] Complete. Time taken: 00:00:43
+2022-06-08 20:45:23,706 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:45:52,116 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:46:05,434 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:46:05,434 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:46:05,477 evaluator INFO: Training Results - Epoch: 48 Avg accuracy: 0.9368 Avg loss: 0.6574
+2022-06-08 20:46:05,478 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:46:06,269 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:46:06,269 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:46:06,312 evaluator INFO: Validation Results - Epoch: 48 Avg accuracy: 0.9071 Avg loss: 0.7349
+2022-06-08 20:46:06,312 evaluator INFO: EPOCH_COMPLETED took 28.4099338054657 seconds
+2022-06-08 20:46:06,312 trainer INFO: Epoch[48] Complete. Time taken: 00:00:43
+2022-06-08 20:46:06,312 trainer INFO: Current learning rate is 0.001
+2022-06-08 20:46:34,715 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:46:48,179 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:46:48,179 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:46:48,235 evaluator INFO: Training Results - Epoch: 49 Avg accuracy: 0.9384 Avg loss: 0.6567
+2022-06-08 20:46:48,235 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:46:49,037 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:46:49,037 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:46:49,074 evaluator INFO: Validation Results - Epoch: 49 Avg accuracy: 0.9079 Avg loss: 0.7268
+2022-06-08 20:46:49,074 evaluator INFO: EPOCH_COMPLETED took 28.403268337249756 seconds
+2022-06-08 20:46:49,074 trainer INFO: Epoch[49] Complete. Time taken: 00:00:43
+2022-06-08 20:46:49,074 trainer INFO: Current learning rate is 0.0002
+Epoch 00049: reducing learning rate of group 0 to 2.0000e-04.
+2022-06-08 20:47:17,479 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:47:31,213 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:47:31,213 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:47:31,261 evaluator INFO: Training Results - Epoch: 50 Avg accuracy: 0.9573 Avg loss: 0.6101
+2022-06-08 20:47:31,261 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:47:32,067 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:47:32,067 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:47:32,117 evaluator INFO: Validation Results - Epoch: 50 Avg accuracy: 0.9239 Avg loss: 0.6824
+2022-06-08 20:47:32,117 evaluator INFO: EPOCH_COMPLETED took 28.404862880706787 seconds
+2022-06-08 20:47:32,117 trainer INFO: Epoch[50] Complete. Time taken: 00:00:43
+2022-06-08 20:47:32,117 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:48:00,505 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:48:13,795 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:48:13,795 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:48:13,833 evaluator INFO: Training Results - Epoch: 51 Avg accuracy: 0.9593 Avg loss: 0.6050
+2022-06-08 20:48:13,833 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:48:14,637 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:48:14,637 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:48:14,680 evaluator INFO: Validation Results - Epoch: 51 Avg accuracy: 0.9219 Avg loss: 0.6810
+2022-06-08 20:48:14,680 evaluator INFO: EPOCH_COMPLETED took 28.387479066848755 seconds
+2022-06-08 20:48:14,680 trainer INFO: Epoch[51] Complete. Time taken: 00:00:43
+2022-06-08 20:48:14,680 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:48:43,046 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:48:56,364 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:48:56,364 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:48:56,403 evaluator INFO: Training Results - Epoch: 52 Avg accuracy: 0.9610 Avg loss: 0.6001
+2022-06-08 20:48:56,403 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:48:57,205 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:48:57,205 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:48:57,258 evaluator INFO: Validation Results - Epoch: 52 Avg accuracy: 0.9215 Avg loss: 0.6816
+2022-06-08 20:48:57,258 evaluator INFO: EPOCH_COMPLETED took 28.36585807800293 seconds
+2022-06-08 20:48:57,258 trainer INFO: Epoch[52] Complete. Time taken: 00:00:43
+2022-06-08 20:48:57,258 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:49:25,646 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:49:38,944 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:49:38,944 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:49:38,986 evaluator INFO: Training Results - Epoch: 53 Avg accuracy: 0.9626 Avg loss: 0.5961
+2022-06-08 20:49:38,986 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:49:39,783 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:49:39,783 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:49:39,828 evaluator INFO: Validation Results - Epoch: 53 Avg accuracy: 0.9219 Avg loss: 0.6838
+2022-06-08 20:49:39,828 evaluator INFO: EPOCH_COMPLETED took 28.3879177570343 seconds
+2022-06-08 20:49:39,828 trainer INFO: Epoch[53] Complete. Time taken: 00:00:43
+2022-06-08 20:49:39,828 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:50:08,212 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:50:21,507 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:50:21,507 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:50:21,550 evaluator INFO: Training Results - Epoch: 54 Avg accuracy: 0.9625 Avg loss: 0.5970
+2022-06-08 20:50:21,551 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:50:22,357 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:50:22,357 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:50:22,401 evaluator INFO: Validation Results - Epoch: 54 Avg accuracy: 0.9235 Avg loss: 0.6817
+2022-06-08 20:50:22,401 evaluator INFO: EPOCH_COMPLETED took 28.38447380065918 seconds
+2022-06-08 20:50:22,401 trainer INFO: Epoch[54] Complete. Time taken: 00:00:43
+2022-06-08 20:50:22,401 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:50:50,800 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:51:04,098 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:51:04,098 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:51:04,153 evaluator INFO: Training Results - Epoch: 55 Avg accuracy: 0.9637 Avg loss: 0.5945
+2022-06-08 20:51:04,154 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:51:04,960 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:51:04,960 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:51:05,004 evaluator INFO: Validation Results - Epoch: 55 Avg accuracy: 0.9231 Avg loss: 0.6856
+2022-06-08 20:51:05,004 evaluator INFO: EPOCH_COMPLETED took 28.399203062057495 seconds
+2022-06-08 20:51:05,004 trainer INFO: Epoch[55] Complete. Time taken: 00:00:43
+2022-06-08 20:51:05,004 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:51:33,410 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:51:46,712 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:51:46,712 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:51:46,756 evaluator INFO: Training Results - Epoch: 56 Avg accuracy: 0.9638 Avg loss: 0.5915
+2022-06-08 20:51:46,756 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:51:47,567 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:51:47,567 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:51:47,605 evaluator INFO: Validation Results - Epoch: 56 Avg accuracy: 0.9186 Avg loss: 0.6859
+2022-06-08 20:51:47,605 evaluator INFO: EPOCH_COMPLETED took 28.40581703186035 seconds
+2022-06-08 20:51:47,606 trainer INFO: Epoch[56] Complete. Time taken: 00:00:43
+2022-06-08 20:51:47,606 trainer INFO: Current learning rate is 0.0002
+2022-06-08 20:52:16,009 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:52:29,309 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:52:29,309 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:52:29,362 evaluator INFO: Training Results - Epoch: 57 Avg accuracy: 0.9673 Avg loss: 0.5865
+2022-06-08 20:52:29,362 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:52:30,157 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:52:30,158 evaluator INFO: Engine run complete. Time taken: 00:00:01
+Epoch 00057: reducing learning rate of group 0 to 4.0000e-05.
+2022-06-08 20:52:30,203 evaluator INFO: Validation Results - Epoch: 57 Avg accuracy: 0.9219 Avg loss: 0.6910
+2022-06-08 20:52:30,203 evaluator INFO: EPOCH_COMPLETED took 28.403456926345825 seconds
+2022-06-08 20:52:30,203 trainer INFO: Epoch[57] Complete. Time taken: 00:00:43
+2022-06-08 20:52:30,203 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:52:58,628 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:53:11,955 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:53:11,956 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:53:12,001 evaluator INFO: Training Results - Epoch: 58 Avg accuracy: 0.9675 Avg loss: 0.5829
+2022-06-08 20:53:12,001 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:53:12,808 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:53:12,809 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:53:12,847 evaluator INFO: Validation Results - Epoch: 58 Avg accuracy: 0.9252 Avg loss: 0.6770
+2022-06-08 20:53:12,847 evaluator INFO: EPOCH_COMPLETED took 28.424882888793945 seconds
+2022-06-08 20:53:12,847 trainer INFO: Epoch[58] Complete. Time taken: 00:00:43
+2022-06-08 20:53:12,847 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:53:41,452 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:53:55,578 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:53:55,578 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:53:55,623 evaluator INFO: Training Results - Epoch: 59 Avg accuracy: 0.9690 Avg loss: 0.5812
+2022-06-08 20:53:55,623 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:53:56,459 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:53:56,459 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:53:56,511 evaluator INFO: Validation Results - Epoch: 59 Avg accuracy: 0.9272 Avg loss: 0.6774
+2022-06-08 20:53:56,511 evaluator INFO: EPOCH_COMPLETED took 28.604984998703003 seconds
+2022-06-08 20:53:56,511 trainer INFO: Epoch[59] Complete. Time taken: 00:00:44
+2022-06-08 20:53:56,511 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:54:25,406 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:54:38,776 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 20:54:38,776 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 20:54:38,822 evaluator INFO: Training Results - Epoch: 60 Avg accuracy: 0.9706 Avg loss: 0.5778
+2022-06-08 20:54:38,822 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:54:39,627 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:54:39,628 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:54:39,667 evaluator INFO: Validation Results - Epoch: 60 Avg accuracy: 0.9301 Avg loss: 0.6746
+2022-06-08 20:54:39,668 evaluator INFO: EPOCH_COMPLETED took 28.89488697052002 seconds
+2022-06-08 20:54:39,668 trainer INFO: Epoch[60] Complete. Time taken: 00:00:43
+2022-06-08 20:54:39,668 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:55:08,415 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:55:22,736 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:55:22,736 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:55:22,804 evaluator INFO: Training Results - Epoch: 61 Avg accuracy: 0.9692 Avg loss: 0.5796
+2022-06-08 20:55:22,804 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:55:23,659 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:55:23,659 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:55:23,716 evaluator INFO: Validation Results - Epoch: 61 Avg accuracy: 0.9297 Avg loss: 0.6748
+2022-06-08 20:55:23,716 evaluator INFO: EPOCH_COMPLETED took 28.74739098548889 seconds
+2022-06-08 20:55:23,716 trainer INFO: Epoch[61] Complete. Time taken: 00:00:44
+2022-06-08 20:55:23,716 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:55:53,507 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:56:07,340 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:56:07,340 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:56:07,386 evaluator INFO: Training Results - Epoch: 62 Avg accuracy: 0.9700 Avg loss: 0.5779
+2022-06-08 20:56:07,387 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:56:08,206 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:56:08,207 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:56:08,253 evaluator INFO: Validation Results - Epoch: 62 Avg accuracy: 0.9276 Avg loss: 0.6744
+2022-06-08 20:56:08,253 evaluator INFO: EPOCH_COMPLETED took 29.79074740409851 seconds
+2022-06-08 20:56:08,253 trainer INFO: Epoch[62] Complete. Time taken: 00:00:45
+2022-06-08 20:56:08,253 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:56:37,980 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:56:52,082 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:56:52,082 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:56:52,126 evaluator INFO: Training Results - Epoch: 63 Avg accuracy: 0.9708 Avg loss: 0.5775
+2022-06-08 20:56:52,126 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:56:53,005 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:56:53,006 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:56:53,117 evaluator INFO: Validation Results - Epoch: 63 Avg accuracy: 0.9276 Avg loss: 0.6749
+2022-06-08 20:56:53,117 evaluator INFO: EPOCH_COMPLETED took 29.726423501968384 seconds
+2022-06-08 20:56:53,117 trainer INFO: Epoch[63] Complete. Time taken: 00:00:45
+2022-06-08 20:56:53,117 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:57:22,138 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:57:36,401 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:57:36,402 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:57:36,453 evaluator INFO: Training Results - Epoch: 64 Avg accuracy: 0.9701 Avg loss: 0.5778
+2022-06-08 20:57:36,453 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:57:37,312 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:57:37,312 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:57:37,358 evaluator INFO: Validation Results - Epoch: 64 Avg accuracy: 0.9256 Avg loss: 0.6742
+2022-06-08 20:57:37,358 evaluator INFO: EPOCH_COMPLETED took 29.021235466003418 seconds
+2022-06-08 20:57:37,359 trainer INFO: Epoch[64] Complete. Time taken: 00:00:44
+2022-06-08 20:57:37,359 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:58:07,695 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:58:21,714 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:58:21,714 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:58:21,758 evaluator INFO: Training Results - Epoch: 65 Avg accuracy: 0.9713 Avg loss: 0.5756
+2022-06-08 20:58:21,758 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:58:22,581 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:58:22,581 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:58:22,631 evaluator INFO: Validation Results - Epoch: 65 Avg accuracy: 0.9268 Avg loss: 0.6755
+2022-06-08 20:58:22,631 evaluator INFO: EPOCH_COMPLETED took 30.33598780632019 seconds
+2022-06-08 20:58:22,631 trainer INFO: Epoch[65] Complete. Time taken: 00:00:45
+2022-06-08 20:58:22,631 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:58:52,203 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:59:06,280 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:59:06,280 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:59:06,328 evaluator INFO: Training Results - Epoch: 66 Avg accuracy: 0.9709 Avg loss: 0.5749
+2022-06-08 20:59:06,328 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:59:07,206 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:59:07,206 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:59:07,253 evaluator INFO: Validation Results - Epoch: 66 Avg accuracy: 0.9272 Avg loss: 0.6746
+2022-06-08 20:59:07,254 evaluator INFO: EPOCH_COMPLETED took 29.571818590164185 seconds
+2022-06-08 20:59:07,254 trainer INFO: Epoch[66] Complete. Time taken: 00:00:45
+2022-06-08 20:59:07,254 trainer INFO: Current learning rate is 4e-05
+2022-06-08 20:59:37,161 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:59:51,483 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 20:59:51,483 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 20:59:51,581 evaluator INFO: Training Results - Epoch: 67 Avg accuracy: 0.9704 Avg loss: 0.5776
+2022-06-08 20:59:51,581 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 20:59:52,452 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 20:59:52,452 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 20:59:52,500 evaluator INFO: Validation Results - Epoch: 67 Avg accuracy: 0.9256 Avg loss: 0.6751
+2022-06-08 20:59:52,500 evaluator INFO: EPOCH_COMPLETED took 29.907099962234497 seconds
+2022-06-08 20:59:52,500 trainer INFO: Epoch[67] Complete. Time taken: 00:00:45
+2022-06-08 20:59:52,500 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:00:22,283 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:00:35,944 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:00:35,944 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:00:35,991 evaluator INFO: Training Results - Epoch: 68 Avg accuracy: 0.9712 Avg loss: 0.5746
+2022-06-08 21:00:35,991 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:00:36,846 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:00:36,847 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:00:36,899 evaluator INFO: Validation Results - Epoch: 68 Avg accuracy: 0.9272 Avg loss: 0.6744
+2022-06-08 21:00:36,899 evaluator INFO: EPOCH_COMPLETED took 29.782596111297607 seconds
+2022-06-08 21:00:36,899 trainer INFO: Epoch[68] Complete. Time taken: 00:00:44
+2022-06-08 21:00:36,899 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:01:06,226 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:01:19,935 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:01:19,935 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:01:19,987 evaluator INFO: Training Results - Epoch: 69 Avg accuracy: 0.9706 Avg loss: 0.5766
+2022-06-08 21:01:19,988 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:01:20,843 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:01:20,843 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:01:20,893 evaluator INFO: Validation Results - Epoch: 69 Avg accuracy: 0.9252 Avg loss: 0.6728
+2022-06-08 21:01:20,893 evaluator INFO: EPOCH_COMPLETED took 29.326762676239014 seconds
+2022-06-08 21:01:20,893 trainer INFO: Epoch[69] Complete. Time taken: 00:00:44
+2022-06-08 21:01:20,893 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:01:50,424 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:02:04,148 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:02:04,149 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:02:04,192 evaluator INFO: Training Results - Epoch: 70 Avg accuracy: 0.9716 Avg loss: 0.5744
+2022-06-08 21:02:04,192 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:02:05,024 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:02:05,024 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:02:05,078 evaluator INFO: Validation Results - Epoch: 70 Avg accuracy: 0.9272 Avg loss: 0.6735
+2022-06-08 21:02:05,078 evaluator INFO: EPOCH_COMPLETED took 29.53017830848694 seconds
+2022-06-08 21:02:05,078 trainer INFO: Epoch[70] Complete. Time taken: 00:00:44
+2022-06-08 21:02:05,078 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:02:34,249 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:02:48,015 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:02:48,015 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:02:48,067 evaluator INFO: Training Results - Epoch: 71 Avg accuracy: 0.9719 Avg loss: 0.5739
+2022-06-08 21:02:48,067 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:02:48,909 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:02:48,909 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:02:48,956 evaluator INFO: Validation Results - Epoch: 71 Avg accuracy: 0.9276 Avg loss: 0.6721
+2022-06-08 21:02:48,956 evaluator INFO: EPOCH_COMPLETED took 29.17061424255371 seconds
+2022-06-08 21:02:48,956 trainer INFO: Epoch[71] Complete. Time taken: 00:00:44
+2022-06-08 21:02:48,956 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:03:18,410 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:03:32,032 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:03:32,032 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:03:32,082 evaluator INFO: Training Results - Epoch: 72 Avg accuracy: 0.9714 Avg loss: 0.5752
+2022-06-08 21:03:32,082 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:03:32,916 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:03:32,916 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:03:32,961 evaluator INFO: Validation Results - Epoch: 72 Avg accuracy: 0.9248 Avg loss: 0.6717
+2022-06-08 21:03:32,961 evaluator INFO: EPOCH_COMPLETED took 29.45376491546631 seconds
+2022-06-08 21:03:32,961 trainer INFO: Epoch[72] Complete. Time taken: 00:00:44
+2022-06-08 21:03:32,961 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:04:02,324 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:04:15,963 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:04:15,963 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:04:16,012 evaluator INFO: Training Results - Epoch: 73 Avg accuracy: 0.9718 Avg loss: 0.5738
+2022-06-08 21:04:16,013 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:04:16,830 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:04:16,830 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:04:16,874 evaluator INFO: Validation Results - Epoch: 73 Avg accuracy: 0.9260 Avg loss: 0.6719
+2022-06-08 21:04:16,874 evaluator INFO: EPOCH_COMPLETED took 29.362379789352417 seconds
+2022-06-08 21:04:16,875 trainer INFO: Epoch[73] Complete. Time taken: 00:00:44
+2022-06-08 21:04:16,875 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:04:46,039 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:05:00,066 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:05:00,067 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:05:00,123 evaluator INFO: Training Results - Epoch: 74 Avg accuracy: 0.9726 Avg loss: 0.5725
+2022-06-08 21:05:00,123 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:05:01,069 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:05:01,069 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:05:01,132 evaluator INFO: Validation Results - Epoch: 74 Avg accuracy: 0.9256 Avg loss: 0.6744
+2022-06-08 21:05:01,132 evaluator INFO: EPOCH_COMPLETED took 29.164547443389893 seconds
+2022-06-08 21:05:01,132 trainer INFO: Epoch[74] Complete. Time taken: 00:00:44
+2022-06-08 21:05:01,132 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:05:30,716 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:05:44,528 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:05:44,528 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:05:44,581 evaluator INFO: Training Results - Epoch: 75 Avg accuracy: 0.9724 Avg loss: 0.5719
+2022-06-08 21:05:44,581 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:05:45,480 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:05:45,480 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:05:45,538 evaluator INFO: Validation Results - Epoch: 75 Avg accuracy: 0.9276 Avg loss: 0.6717
+2022-06-08 21:05:45,538 evaluator INFO: EPOCH_COMPLETED took 29.583616495132446 seconds
+2022-06-08 21:05:45,538 trainer INFO: Epoch[75] Complete. Time taken: 00:00:44
+2022-06-08 21:05:45,538 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:06:15,332 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:06:29,120 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:06:29,120 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:06:29,166 evaluator INFO: Training Results - Epoch: 76 Avg accuracy: 0.9709 Avg loss: 0.5738
+2022-06-08 21:06:29,166 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:06:30,000 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:06:30,000 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:06:30,055 evaluator INFO: Validation Results - Epoch: 76 Avg accuracy: 0.9248 Avg loss: 0.6747
+2022-06-08 21:06:30,055 evaluator INFO: EPOCH_COMPLETED took 29.79369306564331 seconds
+2022-06-08 21:06:30,055 trainer INFO: Epoch[76] Complete. Time taken: 00:00:45
+2022-06-08 21:06:30,055 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:06:59,383 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:07:13,241 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:07:13,241 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:07:13,307 evaluator INFO: Training Results - Epoch: 77 Avg accuracy: 0.9721 Avg loss: 0.5715
+2022-06-08 21:07:13,307 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:07:14,174 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:07:14,174 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:07:14,219 evaluator INFO: Validation Results - Epoch: 77 Avg accuracy: 0.9252 Avg loss: 0.6725
+2022-06-08 21:07:14,220 evaluator INFO: EPOCH_COMPLETED took 29.327447175979614 seconds
+2022-06-08 21:07:14,220 trainer INFO: Epoch[77] Complete. Time taken: 00:00:44
+2022-06-08 21:07:14,220 trainer INFO: Current learning rate is 4e-05
+2022-06-08 21:07:43,286 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:07:56,883 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:07:56,883 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:07:56,937 evaluator INFO: Training Results - Epoch: 78 Avg accuracy: 0.9720 Avg loss: 0.5725
+2022-06-08 21:07:56,937 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:07:57,787 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:07:57,787 evaluator INFO: Engine run complete. Time taken: 00:00:01
+Epoch 00078: reducing learning rate of group 0 to 8.0000e-06.
+2022-06-08 21:07:57,837 evaluator INFO: Validation Results - Epoch: 78 Avg accuracy: 0.9252 Avg loss: 0.6730
+2022-06-08 21:07:57,837 evaluator INFO: EPOCH_COMPLETED took 29.06584358215332 seconds
+2022-06-08 21:07:57,837 trainer INFO: Epoch[78] Complete. Time taken: 00:00:44
+2022-06-08 21:07:57,837 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:08:27,193 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:08:41,898 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:15
+2022-06-08 21:08:41,898 evaluator INFO: Engine run complete. Time taken: 00:00:15
+2022-06-08 21:08:41,967 evaluator INFO: Training Results - Epoch: 79 Avg accuracy: 0.9727 Avg loss: 0.5703
+2022-06-08 21:08:41,967 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:08:42,833 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:08:42,834 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:08:42,888 evaluator INFO: Validation Results - Epoch: 79 Avg accuracy: 0.9256 Avg loss: 0.6739
+2022-06-08 21:08:42,888 evaluator INFO: EPOCH_COMPLETED took 29.355371713638306 seconds
+2022-06-08 21:08:42,888 trainer INFO: Epoch[79] Complete. Time taken: 00:00:45
+2022-06-08 21:08:42,888 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:09:12,690 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:09:26,389 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:09:26,389 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:09:26,441 evaluator INFO: Training Results - Epoch: 80 Avg accuracy: 0.9722 Avg loss: 0.5724
+2022-06-08 21:09:26,441 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:09:27,276 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:09:27,276 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:09:27,345 evaluator INFO: Validation Results - Epoch: 80 Avg accuracy: 0.9256 Avg loss: 0.6738
+2022-06-08 21:09:27,345 evaluator INFO: EPOCH_COMPLETED took 29.801730632781982 seconds
+2022-06-08 21:09:27,345 trainer INFO: Epoch[80] Complete. Time taken: 00:00:44
+2022-06-08 21:09:27,345 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:09:56,943 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:10:10,361 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:10:10,361 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 21:10:10,415 evaluator INFO: Training Results - Epoch: 81 Avg accuracy: 0.9738 Avg loss: 0.5690
+2022-06-08 21:10:10,415 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:10:11,250 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:10:11,250 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:10:11,303 evaluator INFO: Validation Results - Epoch: 81 Avg accuracy: 0.9252 Avg loss: 0.6737
+2022-06-08 21:10:11,303 evaluator INFO: EPOCH_COMPLETED took 29.59808921813965 seconds
+2022-06-08 21:10:11,303 trainer INFO: Epoch[81] Complete. Time taken: 00:00:44
+2022-06-08 21:10:11,303 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:10:39,872 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:10:53,951 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:14
+2022-06-08 21:10:53,951 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:10:54,016 evaluator INFO: Training Results - Epoch: 82 Avg accuracy: 0.9732 Avg loss: 0.5705
+2022-06-08 21:10:54,016 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:10:54,885 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:10:54,885 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:10:54,947 evaluator INFO: Validation Results - Epoch: 82 Avg accuracy: 0.9248 Avg loss: 0.6753
+2022-06-08 21:10:54,947 evaluator INFO: EPOCH_COMPLETED took 28.56886315345764 seconds
+2022-06-08 21:10:54,947 trainer INFO: Epoch[82] Complete. Time taken: 00:00:44
+2022-06-08 21:10:54,947 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:11:24,414 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:11:37,964 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:11:37,964 evaluator INFO: Engine run complete. Time taken: 00:00:14
+2022-06-08 21:11:38,018 evaluator INFO: Training Results - Epoch: 83 Avg accuracy: 0.9730 Avg loss: 0.5710
+2022-06-08 21:11:38,018 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:11:38,837 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:11:38,837 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:11:38,885 evaluator INFO: Validation Results - Epoch: 83 Avg accuracy: 0.9256 Avg loss: 0.6734
+2022-06-08 21:11:38,885 evaluator INFO: EPOCH_COMPLETED took 29.466959953308105 seconds
+2022-06-08 21:11:38,885 trainer INFO: Epoch[83] Complete. Time taken: 00:00:44
+2022-06-08 21:11:38,885 trainer INFO: Current learning rate is 8.000000000000001e-06
+2022-06-08 21:12:07,355 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:12:20,731 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:12:20,731 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 21:12:20,785 evaluator INFO: Training Results - Epoch: 84 Avg accuracy: 0.9736 Avg loss: 0.5696
+2022-06-08 21:12:20,785 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:12:21,614 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:12:21,614 evaluator INFO: Engine run complete. Time taken: 00:00:01
+Epoch 00084: reducing learning rate of group 0 to 1.6000e-06.
+2022-06-08 21:12:21,666 evaluator INFO: Validation Results - Epoch: 84 Avg accuracy: 0.9276 Avg loss: 0.6737
+2022-06-08 21:12:21,667 evaluator INFO: EPOCH_COMPLETED took 28.470233917236328 seconds
+2022-06-08 21:12:21,667 trainer INFO: Epoch[84] Complete. Time taken: 00:00:43
+2022-06-08 21:12:21,667 trainer INFO: Current learning rate is 1.6000000000000004e-06
+2022-06-08 21:12:50,139 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:13:03,525 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:13:03,526 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 21:13:03,574 evaluator INFO: Training Results - Epoch: 85 Avg accuracy: 0.9721 Avg loss: 0.5718
+2022-06-08 21:13:03,574 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:13:04,401 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:13:04,401 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:13:04,450 evaluator INFO: Validation Results - Epoch: 85 Avg accuracy: 0.9264 Avg loss: 0.6737
+2022-06-08 21:13:04,450 evaluator INFO: EPOCH_COMPLETED took 28.472094297409058 seconds
+2022-06-08 21:13:04,450 trainer INFO: Epoch[85] Complete. Time taken: 00:00:43
+2022-06-08 21:13:04,451 trainer INFO: Current learning rate is 1.6000000000000004e-06
+2022-06-08 21:13:32,955 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:13:46,324 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:13
+2022-06-08 21:13:46,324 ignite.handlers.early_stopping.EarlyStopping INFO: EarlyStopping: Stop training
+2022-06-08 21:13:46,324 trainer INFO: Terminate signaled. Engine will stop after current iteration is finished.
+2022-06-08 21:13:46,324 evaluator INFO: Engine run complete. Time taken: 00:00:13
+2022-06-08 21:13:46,372 evaluator INFO: Training Results - Epoch: 86 Avg accuracy: 0.9727 Avg loss: 0.5705
+2022-06-08 21:13:46,372 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:13:47,204 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:01
+2022-06-08 21:13:47,204 ignite.handlers.early_stopping.EarlyStopping INFO: EarlyStopping: Stop training
+2022-06-08 21:13:47,204 trainer INFO: Terminate signaled. Engine will stop after current iteration is finished.
+2022-06-08 21:13:47,204 evaluator INFO: Engine run complete. Time taken: 00:00:01
+2022-06-08 21:13:47,257 evaluator INFO: Validation Results - Epoch: 86 Avg accuracy: 0.9272 Avg loss: 0.6741
+2022-06-08 21:13:47,257 evaluator INFO: EPOCH_COMPLETED took 28.50452494621277 seconds
+2022-06-08 21:13:47,257 trainer INFO: Epoch[86] Complete. Time taken: 00:00:43
+2022-06-08 21:13:47,257 evaluator INFO: COMPLETED took 3703.936243534088 seconds
+2022-06-08 21:13:47,257 evaluator INFO: Engine run starting with max_epochs=1.
+2022-06-08 21:13:50,171 evaluator INFO: Epoch[1] Complete. Time taken: 00:00:03
+2022-06-08 21:13:50,171 ignite.handlers.early_stopping.EarlyStopping INFO: EarlyStopping: Stop training
+2022-06-08 21:13:50,171 trainer INFO: Terminate signaled. Engine will stop after current iteration is finished.
+2022-06-08 21:13:50,171 evaluator INFO: Engine run complete. Time taken: 00:00:03
+2022-06-08 21:13:50,218 evaluator INFO: Done, Test Results - Avg accuracy: 0.9309 Avg loss: 0.6777
+              precision    recall  f1-score   support
+
+    airplane       0.94      0.94      0.94        18
+  automobile       0.92      1.00      0.96        12
+        bird       1.00      0.92      0.96        13
+         cat       1.00      0.90      0.95        10
+        deer       1.00      1.00      1.00        15
+         dog       0.92      1.00      0.96        11
+        frog       0.90      1.00      0.95         9
+       horse       1.00      1.00      1.00        15
+        ship       1.00      0.93      0.97        15
+       truck       1.00      1.00      1.00        10
+
+    accuracy                           0.97       128
+   macro avg       0.97      0.97      0.97       128
+weighted avg       0.97      0.97      0.97       128
+
+2022-06-08 21:13:50,527 trainer INFO: Engine run complete. Time taken: 01:01:47
+
+  _     ._   __/__   _ _  _  _ _/_   Recorded: 20:12:03  Samples:  439904
+ /_//_/// /_\ / //_// / //_'/ //     Duration: 3707.268  CPU time: 3772.464
+/   _/                      v4.1.1
+
+Program: /media/zrway/3a0953e8-35d8-42cf-ab69-af4047dba592/gdbls-pytorch/ignite_enterance.py
+
+3707.268 <module>  ignite_enterance.py:1
+└─ 3707.268 run  ignite/engine/engine.py:593
+      [563 frames hidden]  ignite, torch, <built-in>, queue, thr...
+         1163.934 _call_impl  torch/nn/modules/module.py:1104
+         │  1080.182 cross_entropy_loss  <built-in>:0
+         └─ 82.822 forward  model/gdbls.py:207
+            └─ 82.698 _forward_impl  model/gdbls.py:186
+               └─ 81.494 _call_impl  torch/nn/modules/module.py:1104
+                     [44 frames hidden]  torch, <built-in>
+                        76.921 forward  model/gdbls.py:88
+                        └─ 72.162 _call_impl  torch/nn/modules/module.py:1104
+                              [68 frames hidden]  torch, <built-in>
+         1066.181 Tensor.item  <built-in>:0
+         1240.442 _fire_event  ignite/engine/engine.py:400
+         ├─ 1163.860 log_training_results  ignite_enterance.py:131
+         │  └─ 1163.858 run  ignite/engine/engine.py:593
+         │        [631 frames hidden]  ignite, torch, <built-in>, typing, ab...
+         │           1030.043 Tensor.to  <built-in>:0
+         │           86.174 _call_impl  torch/nn/modules/module.py:1104
+         │           └─ 85.253 forward  model/gdbls.py:207
+         │              └─ 84.830 _forward_impl  model/gdbls.py:186
+         │                 └─ 80.172 _call_impl  torch/nn/modules/module.py:1104
+         │                       [44 frames hidden]  torch, <built-in>
+         │                          63.274 forward  model/gdbls.py:88
+         │                          └─ 57.405 _call_impl  torch/nn/modules/module.py:1104
+         │                                [60 frames hidden]  torch, <built-in>
+         └─ 73.299 log_validation_results  ignite_enterance.py:142
+            └─ 73.291 run  ignite/engine/engine.py:593
+                  [492 frames hidden]  ignite, torch, <built-in>, typing, ab...
+
+
+
+Process finished with exit code 0
