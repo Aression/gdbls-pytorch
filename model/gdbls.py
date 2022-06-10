@@ -55,12 +55,12 @@ class FeatureBlock(nn.Module):
         out = self.conv1(x)
         out = self.relu1(out)
         out = self.bn1(out)
-        # out = self.dropout1(out)  # batchsize,planes // 2,32,32
+        out = self.dropout1(out)  # batchsize,planes // 2,32,32
 
         out = self.conv2(out)
         out = self.relu2(out)
         out = self.bn2(out)
-        # out = self.dropout2(out)  # batchsize,planes // 2,32,32
+        out = self.dropout2(out)  # batchsize,planes // 2,32,32
 
         out = self.conv3(out)
         out = self.relu3(out)  # batchsize,planes,32,32

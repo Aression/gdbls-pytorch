@@ -1,2 +1,7 @@
 datasets
+env
 sample
+outputs
+CIFAR10
+CIFAR100
+rev.zip
