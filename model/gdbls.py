@@ -14,6 +14,7 @@ class FeatureBlock(nn.Module):
             planes: int,
             divn: int = 4,
             dropout_rate: float = 0.1,
+            ppvbias: float = 0.0,
             islast: bool = False,
             batchs: int = 128
     ) -> None:
@@ -22,11 +23,13 @@ class FeatureBlock(nn.Module):
         self.batchs = batchs
 
         self.conv1 = conv3x3(inplanes, planes // 2)
+        # self.evonorm1 = EvoNorm2D(input=(planes//2), groups=16)
         self.bn1 = nn.BatchNorm2d(planes // 2)
         self.relu1 = nn.ReLU(inplace=True)
         self.dropout1 = nn.Dropout(dropout_rate)
 
         self.conv2 = conv3x3(planes // 2, planes // 2)
+        # self.evonorm2 = EvoNorm2D(input=(planes//2), groups=16)
         self.bn2 = nn.BatchNorm2d(planes // 2)
         self.relu2 = nn.ReLU(inplace=True)
         self.dropout2 = nn.Dropout(dropout_rate)
@@ -37,8 +40,9 @@ class FeatureBlock(nn.Module):
             self.conv3 = conv3x3(planes // 2, planes)
         self.bn3 = nn.BatchNorm2d(planes)
         self.relu3 = nn.ReLU(inplace=True)
+        # self.evonorm3 = EvoNorm2D(input=planes, groups=16)
 
-        self.pool = PPVPooling(bias=2e-1)
+        self.pool = PPVPooling(bias=ppvbias)
         # self.avgpool = nn.AdaptiveAvgPool2d(1)
         self.reshape1 = torch.reshape
         self.fc1 = nn.Linear(planes, planes // divn)
@@ -51,20 +55,22 @@ class FeatureBlock(nn.Module):
         self.dropout3 = nn.Dropout(dropout_rate)
 
     def forward(self, x: Tensor) -> Tensor:
-        # todo test the priority sequence of relu and bn layers.
         out = self.conv1(x)
         out = self.relu1(out)
         out = self.bn1(out)
+        # out = self.evonorm1(out)
         out = self.dropout1(out)  # batchsize,planes // 2,32,32
 
         out = self.conv2(out)
         out = self.relu2(out)
         out = self.bn2(out)
+        # out = self.evonorm2(out)
         out = self.dropout2(out)  # batchsize,planes // 2,32,32
 
         out = self.conv3(out)
         out = self.relu3(out)  # batchsize,planes,32,32
         out = self.bn3(out)
+        # out = self.evonorm3(out)
 
         # se block
         identity = out
@@ -89,6 +95,7 @@ class GDBLS(nn.Module):
             batchsize: int = 128,
             input_shape: List[int] = None,
             overall_dropout=0.5,
+            ppvbias=0,
             filters: List[int] = None,
             divns: List[int] = None,
             dropout_rate: List[float] = None,
@@ -105,14 +112,16 @@ class GDBLS(nn.Module):
             planes=filters[0],
             divn=divns[0],
             dropout_rate=dropout_rate[0],
-            batchs=batchsize
+            batchs=batchsize,
+            ppvbias=ppvbias
         )
         self.fb2 = FeatureBlock(
             inplanes=filters[0],
             planes=filters[1],
             divn=divns[1],
             dropout_rate=dropout_rate[0],
-            batchs=batchsize
+            batchs=batchsize,
+            ppvbias=ppvbias
         )
         self.fb3 = FeatureBlock(
             inplanes=filters[1],
@@ -120,7 +129,8 @@ class GDBLS(nn.Module):
             divn=divns[2],
             dropout_rate=dropout_rate[0],
             batchs=batchsize,
-            islast=True
+            islast=True,
+            ppvbias=ppvbias
         )
 
         self.flatten1 = torch.flatten
@@ -136,10 +146,14 @@ class GDBLS(nn.Module):
         self.dropout = nn.Dropout(overall_dropout)
         self.fc = nn.Linear((filters[0] * 16 * 16), self.num_classes)
 
-        # todo improve the init functions to meet the original tensorflow project
         for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode="fan_out", nonlinearity="relu")
+            if isinstance(m, nn.Linear):
+                torch.nn.init.xavier_uniform_(m.weight.data)
+                torch.nn.init.zeros_(m.bias.data)
+            elif isinstance(m, nn.Conv2d):
+                torch.nn.init.xavier_uniform_(m.weight.data)
+                if m.bias:
+                    torch.nn.init.constant(m.bias, 0)
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)

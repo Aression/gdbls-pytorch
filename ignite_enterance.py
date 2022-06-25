@@ -1,5 +1,5 @@
+import nni
 import torch
-import argparse
 import numpy as np
 from torch import nn
 
@@ -26,13 +26,14 @@ import seaborn as sn
 import pandas as pd
 
 
-def get_data(config):
+def get_data(config, logger):
     mean = tuple(config['mean'])
     std = tuple(config['std'])
+    dataset_name = config['dataset_name']
 
     transform_train = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
-        transforms.RandomCrop(32, padding=4, padding_mode="reflect"),  # this costs much time.
         transforms.ToTensor(),
         transforms.Normalize(mean, std),
         transforms.RandomErasing(p=0.5)
@@ -42,12 +43,23 @@ def get_data(config):
         transforms.Normalize(mean, std),
     ])
 
-    dataset_name = config['dataset_name']
-    trainset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True, transform=transform_train)
-    validset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True, transform=transform_test)
-    testset = eval(dataset_name)(root='datasets/' + dataset_name, train=False, download=True, transform=transform_test)
+    if dataset_name != 'SVHN':
+        trainset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True,
+                                      transform=transform_train)
+        validset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True,
+                                      transform=transform_test)
+        testset = eval(dataset_name)(root='datasets/' + dataset_name, train=False, download=True,
+                                     transform=transform_test)
+        label_names = list(trainset.classes)
+    else:
+        trainset = SVHN(root='datasets/' + dataset_name, download=True, split='train',
+                        transform=transform_train)
+        validset = SVHN(root='datasets/' + dataset_name, download=True, split='train',
+                        transform=transform_test)
+        testset = SVHN(root='datasets/' + dataset_name, download=True, split='test',
+                       transform=transform_test)
+        label_names = [str(i) for i in range(10)]
 
-    label_names = list(trainset.classes)
     if config['cfg']['test_size'] != 0:
         labels = [trainset[i][1] for i in range(len(trainset))]
         ss = StratifiedShuffleSplit(n_splits=1, test_size=config['cfg']['test_size'])
@@ -68,11 +80,11 @@ def get_data(config):
                                                                shuffle=False, drop_last=True, num_workers=4,
                                                                pin_memory=True)
 
-    print(f"load data complete")
+    logger.info(f"load data complete")
     for X, y in testloader:
-        print(f"Shape of X [N, C, H, W]: {X.shape}")
-        print(f"Shape of y [N, label]: {y.shape} {y.dtype}")
-        print(y.min(), y.max())
+        logger.info(f"data area: [{torch.max(X)},{torch.min(X)}]")
+        logger.info(f"Shape of X [N, C, H, W]: {X.shape}")
+        logger.info(f"Shape of y [N, label]: {y.shape} {y.dtype}")
         break
 
     return trainloader, validloader, testloader, label_names
@@ -85,23 +97,31 @@ def score_function(engine):
 
 
 def run(config, options, logger):
-    torch.manual_seed(0)
+    timeseries = []
+    test_timeseries = []
+    torch.manual_seed(42)
+
+    params = config['cfg']
+    optimized_params = nni.get_next_parameter()
+    params.update(optimized_params)
+
     # Get cpu or gpu device for training.
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Using {device} device")
+    logger.info(f"Using {device} device")
 
     # we should load data first exactly.
     assert get_data is not None
-    train_loader, val_loader, test_dataloader, label_names = get_data(config)
+    train_loader, val_loader, test_dataloader, label_names = get_data(config, logger)
 
     model = gdbls.GDBLS(
         num_classes=config['num_classes'],
         input_shape=config['input_shape'],
-        overall_dropout=config['cfg']["overall_dropout"],
-        filters=config['cfg']["filters"],
-        divns=config['cfg']["divns"],
-        dropout_rate=config['cfg']["dropout_rate"],
-        batchsize=config['cfg']["batch_size"]
+        overall_dropout=params["overall_dropout"],
+        filters=params["filters"],
+        divns=[params["divns"], params["divns"], params["divns"]],
+        dropout_rate=params["dropout_rate"],
+        batchsize=params["batch_size"],
+        ppvbias=params['ppvbias']
     ).to(device)
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=config['cfg']['init_lr'], weight_decay=1e-4)
@@ -173,12 +193,21 @@ def run(config, options, logger):
     @trainer.on(Events.EPOCH_COMPLETED)
     def compute_metrics(engine):
         train_evaluator.run(train_loader)
-        validation_evaluator.run(val_loader)
-        lr_scheduler.step(validation_evaluator.state.metrics["loss"])
+        logger.info(f'Train evaluate result: {train_evaluator.state.metrics}')
 
-    @trainer.on(Events.EPOCH_COMPLETED | Events.COMPLETED)
+        validation_evaluator.run(val_loader)
+        logger.info(f'Validation evaluate result: {validation_evaluator.state.metrics}')
+
+        test_timeseries.append(validation_evaluator.state.times[validation_evaluator.last_event_name.name])
+        lr_scheduler.step(validation_evaluator.state.metrics["loss"])
+        nni.report_intermediate_result(validation_evaluator.state.metrics["accuracy"])
+
+        torch.cuda.empty_cache()
+
+    @trainer.on(Events.EPOCH_COMPLETED)
     def log_time(engine):
-        print(f"{trainer.last_event_name.name} took {trainer.state.times[trainer.last_event_name.name]} seconds")
+        logger.info(f"{trainer.last_event_name.name} took {trainer.state.times[trainer.last_event_name.name]} seconds")
+        timeseries.append(trainer.state.times[trainer.last_event_name.name])
 
     @trainer.on(Events.COMPLETED)
     def do_test(engine):
@@ -190,15 +219,16 @@ def run(config, options, logger):
         metrics = validation_evaluator.state.metrics
         avg_accuracy = metrics["accuracy"]
         avg_loss = metrics["loss"]
-        print(
+        logger.info(
             f"Done, Test Results - Avg accuracy: {avg_accuracy:.4f} Avg loss: {avg_loss:.4f}"
         )
-
-        y_pred = validation_evaluator.state.output[0].cpu().numpy()
-        y_pred = np.argmax(y_pred, axis=1)  # 选择max值进行输出: 0或1
-        y_true = validation_evaluator.state.output[1].cpu().numpy()
+        nni.report_final_result(avg_accuracy)
 
         if options['conclude_train']:
+            y_pred = validation_evaluator.state.output[0].cpu().numpy()
+            y_pred = np.argmax(y_pred, axis=1)
+            y_true = validation_evaluator.state.output[1].cpu().numpy()
+
             # draw confusion matrix
             cf_matrix = confusion_matrix(y_pred, y_true, normalize='true')
             df_cm = pd.DataFrame(cf_matrix, index=label_names, columns=label_names)
@@ -207,13 +237,20 @@ def run(config, options, logger):
             plt.savefig(config['log_pth'] + '/confusion_matrix.png')
 
             # print classification report
-            print(classification_report(y_true, y_pred, target_names=label_names))
+            logger.info(f"Classification report:{classification_report(y_true, y_pred, target_names=label_names)}")
+
+        torch.cuda.empty_cache()
 
     if options['analyse_time']:  # use pyinsnstrument profiler to analyse performance in time
         profiler = Profiler()
         profiler.start()
         trainer.run(train_loader, max_epochs=config['cfg']["epochs"])
         profiler.stop()
-        print(profiler.output_text(unicode=True, color=True))
+        logger.info(profiler.output_text(unicode=True, color=True))
     else:
         trainer.run(train_loader, max_epochs=config['cfg']["epochs"])
+
+    logger.info(f'Training time cost: {sum(timeseries):.3f}')
+    logger.info(f'Average Training time cost Per Epoch: {sum(timeseries) / len(timeseries):.3f}')
+    logger.info(f'Average Validation time cost Per Epoch: {sum(test_timeseries) / len(test_timeseries):.3f}')
+    return

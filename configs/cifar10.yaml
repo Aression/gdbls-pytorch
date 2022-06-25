@@ -1,11 +1,12 @@
 cfg:
-  filters: [128, 192, 256]
-  divns: [2, 2, 2]
-  overall_dropout: 0.4
+  filters: [128, 160, 192]
+  divns: 1
+  overall_dropout: 0.3
+  ppvbias: 0.4
   dropout_rate: [0.1, 0.1, 0.1]
-  init_lr: 5e-4
-  batch_size: 152
-  test_size: 0.1
+  init_lr: 8e-4
+  batch_size: 144
+  test_size: 0.05
   epochs: 200
 dataset_name: "CIFAR10"
 num_classes: 10
