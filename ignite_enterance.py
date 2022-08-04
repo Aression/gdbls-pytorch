@@ -1,7 +1,10 @@
 import nni
-import torch
 import numpy as np
-from torch import nn
+
+import torch
+import torch.nn as nn
+from torchvision import transforms
+from torch.utils.data import DataLoader
 
 # handel data
 from torchvision.transforms import transforms
@@ -15,7 +18,11 @@ from ignite.contrib.handlers.clearml_logger import *
 from ignite.handlers import EarlyStopping, Checkpoint
 
 # models and data-sets
-from model import gdbls
+from model import (
+    gdbls_conv1block3, gdbls_conv2block3, gdbls_conv3block3, gdbls_conv4block3, gdbls_conv5block3, gdbls_conv6block3,
+    gdbls_conv3block1, gdbls_conv3block2, gdbls_conv3block4,
+    gdbls_conv3block3_noEB
+)
 from torchvision.datasets import CIFAR10, CIFAR100, SVHN
 
 # analyse tools
@@ -50,7 +57,6 @@ def get_data(config, logger):
                                       transform=transform_test)
         testset = eval(dataset_name)(root='datasets/' + dataset_name, train=False, download=True,
                                      transform=transform_test)
-        label_names = list(trainset.classes)
     else:
         trainset = SVHN(root='datasets/' + dataset_name, download=True, split='train',
                         transform=transform_train)
@@ -58,12 +64,30 @@ def get_data(config, logger):
                         transform=transform_test)
         testset = SVHN(root='datasets/' + dataset_name, download=True, split='test',
                        transform=transform_test)
+
+    if dataset_name == 'CIFAR10':
+        label_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+    elif dataset_name == 'CIFAR100':
+        label_names = ['apple', 'aquarium_fish', 'baby', 'bear', 'beaver', 'bed', 'bee', 'beetle', 'bicycle',
+                       'bottle', 'bowl', 'boy', 'bridge', 'bus', 'butterfly', 'camel', 'can', 'castle',
+                       'caterpillar', 'cattle', 'chair', 'chimpanzee', 'clock', 'cloud', 'cockroach', 'couch',
+                       'crab', 'crocodile', 'cup', 'dinosaur', 'dolphin', 'elephant', 'flatfish', 'forest', 'fox',
+                       'girl', 'hamster', 'house', 'kangaroo', 'keyboard', 'lamp', 'lawn_mower', 'leopard', 'lion',
+                       'lizard', 'lobster', 'man', 'maple_tree', 'motorcycle', 'mountain', 'mouse', 'mushroom',
+                       'oak_tree', 'orange', 'orchid', 'otter', 'palm_tree', 'pear', 'pickup_truck', 'pine_tree',
+                       'plain', 'plate', 'poppy', 'porcupine', 'possum', 'rabbit', 'raccoon', 'ray', 'road',
+                       'rocket', 'rose', 'sea', 'seal', 'shark', 'shrew', 'skunk', 'skyscraper', 'snail', 'snake',
+                       'spider', 'squirrel', 'streetcar', 'sunflower', 'sweet_pepper', 'table', 'tank', 'telephone',
+                       'television', 'tiger', 'tractor', 'train', 'trout', 'tulip', 'turtle', 'wardrobe', 'whale',
+                       'willow_tree', 'wolf', 'woman', 'worm']
+    elif dataset_name == 'SVHN':
         label_names = [str(i) for i in range(10)]
 
     if config['cfg']['test_size'] != 0:
         labels = [trainset[i][1] for i in range(len(trainset))]
         ss = StratifiedShuffleSplit(n_splits=1, test_size=config['cfg']['test_size'])
         train_indices, valid_indices = list(ss.split(np.array(labels)[:, np.newaxis], labels))[0]
+
         trainset = torch.utils.data.Subset(trainset, train_indices)
         validset = torch.utils.data.Subset(validset, valid_indices)
 
@@ -79,10 +103,9 @@ def get_data(config, logger):
         validloader = testloader = torch.utils.data.DataLoader(testset, batch_size=config['cfg']["batch_size"],
                                                                shuffle=False, drop_last=True, num_workers=4,
                                                                pin_memory=True)
-
-    logger.info(f"load data complete")
     for X, y in testloader:
-        logger.info(f"data area: [{torch.max(X)},{torch.min(X)}]")
+        logger.info(f"load data complete:")
+        logger.info(f"data area: [{X.min()},{X.max()}]")
         logger.info(f"Shape of X [N, C, H, W]: {X.shape}")
         logger.info(f"Shape of y [N, label]: {y.shape} {y.dtype}")
         break
@@ -99,6 +122,8 @@ def score_function(engine):
 def run(config, options, logger):
     timeseries = []
     test_timeseries = []
+
+    acc, loss = [], []
     torch.manual_seed(42)
 
     params = config['cfg']
@@ -113,7 +138,7 @@ def run(config, options, logger):
     assert get_data is not None
     train_loader, val_loader, test_dataloader, label_names = get_data(config, logger)
 
-    model = gdbls.GDBLS(
+    model = eval(options['target_model']).GDBLS(
         num_classes=config['num_classes'],
         input_shape=config['input_shape'],
         overall_dropout=params["overall_dropout"],
@@ -121,8 +146,7 @@ def run(config, options, logger):
         divns=[params["divns"], params["divns"], params["divns"]],
         dropout_rate=params["dropout_rate"],
         batchsize=params["batch_size"],
-        ppvbias=params['ppvbias']
-    ).to(device)
+    ).cuda()
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=config['cfg']['init_lr'], weight_decay=1e-4)
     loss_fn = nn.CrossEntropyLoss(label_smoothing=0.1)
@@ -132,9 +156,11 @@ def run(config, options, logger):
     trainer.logger = setup_logger("trainer")
 
     metrics = {"accuracy": Accuracy(), "loss": Loss(loss_fn)}
+
     # for training eval
     train_evaluator = create_supervised_evaluator(model, metrics=metrics, device=device)
     train_evaluator.logger = setup_logger("Train Evaluator")
+
     # for validation eval
     validation_evaluator = create_supervised_evaluator(model, metrics=metrics, device=device)
     validation_evaluator.logger = setup_logger("Val Evaluator")
@@ -167,12 +193,14 @@ def run(config, options, logger):
         clearml_logger.attach_opt_params_handler(
             trainer, event_name=Events.EPOCH_COMPLETED(every=1), optimizer=optimizer
         )
+
         # # Attach the logger to the trainer to log model's weights as a scalar
         # clearml_logger.attach(trainer, log_handler=WeightsScalarHandler(model),
         #                       event_name=Events.EPOCH_COMPLETED(every=1))
         # # Attach the logger to the trainer to log model's gradients as a histogram
         # clearml_logger.attach(trainer, log_handler=GradsScalarHandler(model),
         #                       event_name=Events.EPOCH_COMPLETED(every=1))
+
         # save the best checkpoint
         handler = Checkpoint(
             {"model": model},
@@ -199,7 +227,9 @@ def run(config, options, logger):
         logger.info(f'Validation evaluate result: {validation_evaluator.state.metrics}')
 
         test_timeseries.append(validation_evaluator.state.times[validation_evaluator.last_event_name.name])
+
         lr_scheduler.step(validation_evaluator.state.metrics["loss"])
+
         nni.report_intermediate_result(validation_evaluator.state.metrics["accuracy"])
 
         torch.cuda.empty_cache()
@@ -238,8 +268,12 @@ def run(config, options, logger):
 
             # print classification report
             logger.info(f"Classification report:{classification_report(y_true, y_pred, target_names=label_names)}")
-
+        acc.append(f'{avg_accuracy:.4f}')
+        loss.append(f'{avg_loss:.4f}')
         torch.cuda.empty_cache()
+
+        if options['log_details']:
+            clearml_logger.close()
 
     if options['analyse_time']:  # use pyinsnstrument profiler to analyse performance in time
         profiler = Profiler()
@@ -253,4 +287,11 @@ def run(config, options, logger):
     logger.info(f'Training time cost: {sum(timeseries):.3f}')
     logger.info(f'Average Training time cost Per Epoch: {sum(timeseries) / len(timeseries):.3f}')
     logger.info(f'Average Validation time cost Per Epoch: {sum(test_timeseries) / len(test_timeseries):.3f}')
-    return
+
+    return {
+        'train_time': float(f'{sum(timeseries):.3f}'),
+        'train_time_epoch': float(f'{sum(timeseries) / len(timeseries):.3f}'),
+        'val_time_epoch': float(f'{sum(test_timeseries) / len(test_timeseries):.3f}'),
+        'acc': float(acc[0]),
+        'loss': float(loss[0])
+    }

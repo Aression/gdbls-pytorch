@@ -3,7 +3,7 @@ from torch import nn
 from torch import Tensor
 from typing import List
 from torchvision.utils import _log_api_usage_once
-from model.PPVPooling import PPVPooling
+from model.PLVPooling import PLVPooling
 from model.customConvs import conv1x1, conv3x3, conv5x5
 
 
@@ -14,36 +14,22 @@ class FeatureBlock(nn.Module):
             planes: int,
             divn: int = 4,
             dropout_rate: float = 0.1,
-            ppvbias: float = 0.0,
-            islast: bool = False,
-            batchs: int = 128
+            batchs: int = 128,
+            islast: bool = False
     ) -> None:
         super().__init__()
         self.planes = planes
         self.batchs = batchs
 
-        self.conv1 = conv3x3(inplanes, planes // 2)
-        # self.evonorm1 = EvoNorm2D(input=(planes//2), groups=16)
-        self.bn1 = nn.BatchNorm2d(planes // 2)
-        self.relu1 = nn.ReLU(inplace=True)
-        self.dropout1 = nn.Dropout(dropout_rate)
-
-        self.conv2 = conv3x3(planes // 2, planes // 2)
-        # self.evonorm2 = EvoNorm2D(input=(planes//2), groups=16)
-        self.bn2 = nn.BatchNorm2d(planes // 2)
-        self.relu2 = nn.ReLU(inplace=True)
-        self.dropout2 = nn.Dropout(dropout_rate)
-
         if islast:
-            self.conv3 = conv5x5(planes // 2, planes)
+            self.conv1 = conv5x5(inplanes, planes, bias=True)
         else:
-            self.conv3 = conv3x3(planes // 2, planes)
-        self.bn3 = nn.BatchNorm2d(planes)
-        self.relu3 = nn.ReLU(inplace=True)
-        # self.evonorm3 = EvoNorm2D(input=planes, groups=16)
+            self.conv1 = conv3x3(inplanes, planes, bias=True)
+        self.relu1 = nn.ReLU(inplace=True)
 
-        self.pool = PPVPooling(bias=ppvbias)
-        # self.avgpool = nn.AdaptiveAvgPool2d(1)
+        self.pool = PLVPooling()
+        # self.pool = nn.AdaptiveAvgPool2d(1)
+
         self.reshape1 = torch.reshape
         self.fc1 = nn.Linear(planes, planes // divn)
         self.fc2 = nn.Linear(planes // divn, planes)
@@ -51,35 +37,24 @@ class FeatureBlock(nn.Module):
         self.reshape2 = torch.reshape
         self.multiply = torch.multiply
 
+        # self.cbam = CBAM(channel=planes)
+
         self.downsample = nn.AvgPool2d(kernel_size=2)
         self.dropout3 = nn.Dropout(dropout_rate)
 
     def forward(self, x: Tensor) -> Tensor:
         out = self.conv1(x)
         out = self.relu1(out)
-        out = self.bn1(out)
-        # out = self.evonorm1(out)
-        out = self.dropout1(out)  # batchsize,planes // 2,32,32
-
-        out = self.conv2(out)
-        out = self.relu2(out)
-        out = self.bn2(out)
-        # out = self.evonorm2(out)
-        out = self.dropout2(out)  # batchsize,planes // 2,32,32
-
-        out = self.conv3(out)
-        out = self.relu3(out)  # batchsize,planes,32,32
-        out = self.bn3(out)
-        # out = self.evonorm3(out)
 
         # se block
         identity = out
-        seout = self.pool(out)
+        seout = self.pool(out, self.conv1.bias)
         seout = self.reshape1(seout, (self.batchs, self.planes))  # batchsize,planes,1,1 -> batchsize,planes
         seout = self.fc1(seout)
         seout = self.fc2(seout)
         out = self.multiply(self.reshape2(seout, (self.batchs, self.planes, 1, 1,)), identity)
 
+        # out = self.cbam(out)
         if self.downsample is not None:
             out = self.downsample(out)
         out = self.dropout3(out)
@@ -95,7 +70,6 @@ class GDBLS(nn.Module):
             batchsize: int = 128,
             input_shape: List[int] = None,
             overall_dropout=0.5,
-            ppvbias=0,
             filters: List[int] = None,
             divns: List[int] = None,
             dropout_rate: List[float] = None,
@@ -113,7 +87,6 @@ class GDBLS(nn.Module):
             divn=divns[0],
             dropout_rate=dropout_rate[0],
             batchs=batchsize,
-            ppvbias=ppvbias
         )
         self.fb2 = FeatureBlock(
             inplanes=filters[0],
@@ -121,7 +94,6 @@ class GDBLS(nn.Module):
             divn=divns[1],
             dropout_rate=dropout_rate[0],
             batchs=batchsize,
-            ppvbias=ppvbias
         )
         self.fb3 = FeatureBlock(
             inplanes=filters[1],
@@ -129,8 +101,7 @@ class GDBLS(nn.Module):
             divn=divns[2],
             dropout_rate=dropout_rate[0],
             batchs=batchsize,
-            islast=True,
-            ppvbias=ppvbias
+            islast=True
         )
 
         self.flatten1 = torch.flatten
@@ -152,7 +123,7 @@ class GDBLS(nn.Module):
                 torch.nn.init.zeros_(m.bias.data)
             elif isinstance(m, nn.Conv2d):
                 torch.nn.init.xavier_uniform_(m.weight.data)
-                if m.bias:
+                if m.bias is not None:
                     torch.nn.init.constant(m.bias, 0)
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
                 nn.init.constant_(m.weight, 1)
