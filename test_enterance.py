@@ -57,7 +57,7 @@ def gen_tasks(dataset, model, exp_explain):
 
 
 if __name__ == '__main__':
-    if sys.argv[1] not in ['cifar10', 'cifar100', 'svhn']:
+    if sys.argv[1] not in ['cifar10', 'cifar100', 'svhn', 'mnist', 'catordog']:
         raise NameError('Not Supported Dataset.')
     if sys.argv[2] not in [
         'gdbls_conv1block3',
@@ -71,7 +71,9 @@ if __name__ == '__main__':
         'gdbls_conv3block2',
         'gdbls_conv3block4',
 
-        'gdbls_conv3block3_noEB'
+        'gdbls_conv3block3_noEB',
+        'resnet_fpn',
+        'gdbls_conv3block3_dogcatversion'
     ]:
         raise NameError('Not Provided Model.')
     if sys.argv[3] is None:

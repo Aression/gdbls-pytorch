@@ -41,6 +41,7 @@ class FeatureBlock(nn.Module):
         self.relu3 = nn.ReLU(inplace=True)
 
         self.pool = PLVPooling()
+        # self.pool = nn.AdaptiveAvgPool2d(output_size=1)
 
         self.reshape1 = torch.reshape
         self.fc1 = nn.Linear(planes, planes // divn)
@@ -70,6 +71,7 @@ class FeatureBlock(nn.Module):
         # se block
         identity = out
         seout = self.pool(out, self.conv3.bias)
+        # seout = self.pool(out)
         seout = self.reshape1(seout, (self.batchs, self.planes))  # batchsize,planes,1,1 -> batchsize,planes
         seout = self.fc1(seout)
         seout = self.fc2(seout)
@@ -140,10 +142,10 @@ class GDBLS(nn.Module):
 
         for m in self.modules():
             if isinstance(m, nn.Linear):
-                torch.nn.init.kaiming_uniform_(m.weight.data)
+                torch.nn.init.xavier_uniform_(m.weight.data)
                 torch.nn.init.zeros_(m.bias.data)
             elif isinstance(m, nn.Conv2d):
-                torch.nn.init.kaiming_uniform_(m.weight.data, nonlinearity='relu')
+                torch.nn.init.xavier_uniform_(m.weight.data)
                 if m.bias is not None:
                     torch.nn.init.constant(m.bias, 0)
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):

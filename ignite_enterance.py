@@ -21,9 +21,12 @@ from ignite.handlers import EarlyStopping, Checkpoint
 from model import (
     gdbls_conv1block3, gdbls_conv2block3, gdbls_conv3block3, gdbls_conv4block3, gdbls_conv5block3, gdbls_conv6block3,
     gdbls_conv3block1, gdbls_conv3block2, gdbls_conv3block4,
-    gdbls_conv3block3_noEB
+    gdbls_conv3block3_noEB,
+    resnet_fpn,
+    gdbls_conv3block3_dogcatversion
 )
-from torchvision.datasets import CIFAR10, CIFAR100, SVHN
+from torchvision.datasets import CIFAR10, CIFAR100, SVHN, MNIST
+from datasets.CATORDOG import DogsVSCatsDataset as CATORDOG
 
 # analyse tools
 from pyinstrument import Profiler
@@ -34,30 +37,67 @@ import pandas as pd
 
 
 def get_data(config, logger):
-    mean = tuple(config['mean'])
-    std = tuple(config['std'])
+
     dataset_name = config['dataset_name']
 
-    transform_train = transforms.Compose([
-        transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize(mean, std),
-        transforms.RandomErasing(p=0.5)
-    ])
-    transform_test = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize(mean, std),
-    ])
+    if dataset_name == 'MNIST':
+        mean = tuple(config['mean'])
+        std = tuple(config['std'])
+        transform_train = transforms.Compose([
+            transforms.Resize(32),
+            transforms.RandomHorizontalFlip(),
+            transforms.RandomCrop(32, padding=4),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+        ])
+        transform_test = transforms.Compose([
+            transforms.Resize(32),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+        ])
+    elif dataset_name == 'CATORDOG':
+        IMAGE_SIZE = 64
+        # 定义一个转换关系，用于将图像数据转换成PyTorch的Tensor形式
+        transform_train = transforms.Compose([
+            transforms.Resize(IMAGE_SIZE),  # 将图像按比例缩放至合适尺寸
+            transforms.CenterCrop((IMAGE_SIZE, IMAGE_SIZE)),  # 从图像中心裁剪合适大小的图像
+            transforms.ToTensor(),  # 转换成Tensor形式，并且数值归一化到[0.0, 1.0]，同时将H×W×C的数据转置成C×H×W，这一点很关键
+        ])
+        transform_test = transforms.Compose([
+            transforms.Resize(IMAGE_SIZE),  # 将图像按比例缩放至合适尺寸
+            transforms.CenterCrop((IMAGE_SIZE, IMAGE_SIZE)),  # 从图像中心裁剪合适大小的图像
+            transforms.ToTensor(),  # 转换成Tensor形式，并且数值归一化到[0.0, 1.0]，同时将H×W×C的数据转置成C×H×W，这一点很关键
+        ])
+    else:
+        mean = tuple(config['mean'])
+        std = tuple(config['std'])
+        transform_train = transforms.Compose([
+            transforms.RandomCrop(32, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+            transforms.RandomErasing(p=0.5)
+        ])
+        transform_test = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+        ])
 
-    if dataset_name != 'SVHN':
+    if dataset_name in ['CIFAR10', 'CIFAR100', 'MNIST']:
         trainset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True,
                                       transform=transform_train)
         validset = eval(dataset_name)(root='datasets/' + dataset_name, train=True, download=True,
                                       transform=transform_test)
         testset = eval(dataset_name)(root='datasets/' + dataset_name, train=False, download=True,
                                      transform=transform_test)
-    else:
+    elif dataset_name == 'CATORDOG':
+        trainset = CATORDOG(root='datasets/CATORDOG', mode='train',
+                            transform=transform_train)
+        validset = CATORDOG(root='datasets/CATORDOG', mode='test',
+                            transform=transform_test)
+        testset = CATORDOG(root='datasets/CATORDOG', mode='test',
+                           transform=transform_test)
+    elif dataset_name == 'SVHN':
         trainset = SVHN(root='datasets/' + dataset_name, download=True, split='train',
                         transform=transform_train)
         validset = SVHN(root='datasets/' + dataset_name, download=True, split='train',
@@ -80,8 +120,10 @@ def get_data(config, logger):
                        'spider', 'squirrel', 'streetcar', 'sunflower', 'sweet_pepper', 'table', 'tank', 'telephone',
                        'television', 'tiger', 'tractor', 'train', 'trout', 'tulip', 'turtle', 'wardrobe', 'whale',
                        'willow_tree', 'wolf', 'woman', 'worm']
-    elif dataset_name == 'SVHN':
+    elif dataset_name in ['MNIST', 'SVHN']:
         label_names = [str(i) for i in range(10)]
+    elif dataset_name == 'CATORDOG':
+        label_names = ['cat', 'dog']
 
     if config['cfg']['test_size'] != 0:
         labels = [trainset[i][1] for i in range(len(trainset))]
@@ -92,16 +134,16 @@ def get_data(config, logger):
         validset = torch.utils.data.Subset(validset, valid_indices)
 
         trainloader = torch.utils.data.DataLoader(trainset, batch_size=config['cfg']["batch_size"],
-                                                  shuffle=False, drop_last=True, num_workers=4, pin_memory=True)
+                                                  shuffle=True, drop_last=True, num_workers=4, pin_memory=True)
         validloader = torch.utils.data.DataLoader(validset, batch_size=config['cfg']["batch_size"],
-                                                  shuffle=False, drop_last=True, num_workers=4, pin_memory=True)
+                                                  shuffle=True, drop_last=True, num_workers=4, pin_memory=True)
         testloader = torch.utils.data.DataLoader(testset, batch_size=config['cfg']["batch_size"],
-                                                 shuffle=False, drop_last=True, num_workers=4, pin_memory=True)
+                                                 shuffle=True, drop_last=True, num_workers=4, pin_memory=True)
     else:
         trainloader = torch.utils.data.DataLoader(trainset, batch_size=config['cfg']["batch_size"],
-                                                  shuffle=False, drop_last=True, num_workers=4, pin_memory=True)
+                                                  shuffle=True, drop_last=True, num_workers=4, pin_memory=True)
         validloader = testloader = torch.utils.data.DataLoader(testset, batch_size=config['cfg']["batch_size"],
-                                                               shuffle=False, drop_last=True, num_workers=4,
+                                                               shuffle=True, drop_last=True, num_workers=4,
                                                                pin_memory=True)
     for X, y in testloader:
         logger.info(f"load data complete:")
@@ -124,6 +166,7 @@ def run(config, options, logger):
     test_timeseries = []
 
     acc, loss = [], []
+    final_test_time = []
     torch.manual_seed(42)
 
     params = config['cfg']
@@ -150,7 +193,9 @@ def run(config, options, logger):
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=config['cfg']['init_lr'], weight_decay=1e-4)
     loss_fn = nn.CrossEntropyLoss(label_smoothing=0.1)
-    lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=3, verbose=True, factor=0.2)
+
+    lrpatience = 3
+    lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=lrpatience, verbose=True, factor=0.2)
 
     trainer = create_supervised_trainer(model, optimizer, loss_fn, device=device)
     trainer.logger = setup_logger("trainer")
@@ -165,7 +210,8 @@ def run(config, options, logger):
     validation_evaluator = create_supervised_evaluator(model, metrics=metrics, device=device)
     validation_evaluator.logger = setup_logger("Val Evaluator")
 
-    early_stop_handler = EarlyStopping(patience=6, score_function=score_function, trainer=trainer)
+    early_stop_patience = 6
+    early_stop_handler = EarlyStopping(patience=early_stop_patience, score_function=score_function, trainer=trainer)
     validation_evaluator.add_event_handler(Events.COMPLETED, early_stop_handler)  # set early stopping handler
 
     clearml_logger = None
@@ -252,6 +298,9 @@ def run(config, options, logger):
         logger.info(
             f"Done, Test Results - Avg accuracy: {avg_accuracy:.4f} Avg loss: {avg_loss:.4f}"
         )
+        final_test_time.append(validation_evaluator.state.times[
+                                   validation_evaluator.last_event_name.name
+                               ])
         nni.report_final_result(avg_accuracy)
 
         if options['conclude_train']:
@@ -292,6 +341,7 @@ def run(config, options, logger):
         'train_time': float(f'{sum(timeseries):.3f}'),
         'train_time_epoch': float(f'{sum(timeseries) / len(timeseries):.3f}'),
         'val_time_epoch': float(f'{sum(test_timeseries) / len(test_timeseries):.3f}'),
+        'last_test_time_consumption': float(final_test_time[0]),
         'acc': float(acc[0]),
         'loss': float(loss[0])
     }

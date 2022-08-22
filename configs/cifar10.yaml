@@ -1,7 +1,7 @@
 cfg:
   filters: [128, 160, 192]
   divns: 1
-  overall_dropout: 0.2
+  overall_dropout: 0.3
   dropout_rate: [0.1, 0.1, 0.1]
   init_lr: 0.0005
   batch_size: 160
