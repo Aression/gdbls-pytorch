@@ -31,7 +31,9 @@ if __name__ == '__main__':
     # target = 'TestPLVA2'
     # target = 'TestMnist'
     target = 'TestCatOrDogv2'
-    for i in range(5):
+    
+    repeat = 5
+    for i in range(repeat):
         for dataset in datasets:
             for model in models:
                 os.system(f'python test_enterance.py {dataset} {model} {target.format(model)}')
